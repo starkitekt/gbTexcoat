@@ -315,7 +315,7 @@ export function InvestorTeaser() {
         <div style={{ position: 'absolute', top: 0, right: 0, width: '50%', height: '100%', background: 'radial-gradient(ellipse at top right, rgba(59,130,246,0.15), transparent 60%)', pointerEvents: 'none' }} />
         <div className="grid-2" style={{ gap: 64, alignItems: 'center', position: 'relative' }}>
           <div>
-            <Eyebrow num="08">Investor opportunity</Eyebrow>
+            <Eyebrow num="09">Investor opportunity</Eyebrow>
             <h2 className="h-display h2" style={{ margin: '20px 0 24px 0' }}>The global coated-fabric market is <span style={{ color: 'var(--accent)' }}>$28B</span> and growing.</h2>
             <p className="lead">We are building a vertically-integrated coated-fabric manufacturer for the Indian aerospace and defence supply chain — and the export market beyond it.</p>
             <div style={{ marginTop: 32, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
@@ -331,6 +331,46 @@ export function InvestorTeaser() {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+/* ===== CLIENTS ===== */
+export function ClientsSection() {
+  const clients = [
+    { name: 'Akashalabdhi',              src: '/Clients/Akashalabdhi.png' },
+    { name: 'Arcship',                   src: '/Clients/Arcship.png' },
+    { name: 'DRDO',                      src: '/Clients/DRDO.jpg' },
+    { name: 'Empyreal Galaxy',           src: '/Clients/Empyreal galaxy.png' },
+    { name: 'IIT Delhi',                 src: '/Clients/IIT Delhi.png' },
+    { name: 'Indian Army Central Command', src: '/Clients/INdian Army_Central_Command.jpg' },
+    { name: 'Kalam Labs',                src: '/Clients/kalam_labs.png' },
+    { name: 'Susan Future Technology',   src: '/Clients/Susan Future technology.png' },
+  ];
+  const doubled = [...clients, ...clients];
+
+  return (
+    <Section id="clients" style={{ background: 'var(--bg-0)', overflow: 'hidden' }}>
+      <div className="reveal" style={{ textAlign: 'center', marginBottom: 32 }}>
+        <Eyebrow num="08">Trusted by</Eyebrow>
+        <h2 className="h-display h2" style={{ margin: '20px 0 16px 0' }}>
+          Partners &amp; <span style={{ color: 'var(--accent)' }}>clients.</span>
+        </h2>
+        <p style={{ color: 'var(--text-2)', maxWidth: '52ch', margin: '0 auto' }}>
+          Institutions and organisations across aerospace, defence, and research that trust GB Texcoat's engineered fabric systems.
+        </p>
+      </div>
+
+      <div className="clients-track-wrap">
+        <div className="clients-track">
+          {doubled.map((c, i) => (
+            <div key={i} className="client-logo-card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={c.src} alt={c.name} title={c.name} />
+            </div>
+          ))}
         </div>
       </div>
     </Section>

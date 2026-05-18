@@ -1,9 +1,8 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Icon, Btn } from './ui';
-import { useTweaks } from './TweaksContext';
 
 const productLinks = [
   { href: '/products/lightweight', t: 'Lightweight High-Strength', d: 'GBT-LS / Aerospace-grade' },
@@ -14,8 +13,20 @@ const productLinks = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const pathname = usePathname();
-  const { tweaks, setTweak } = useTweaks();
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('gbt-theme') as 'dark' | 'light' | null;
+      if (saved) setTheme(saved);
+    } catch {}
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle('theme-light', theme === 'light');
+    try { localStorage.setItem('gbt-theme', theme); } catch {}
+  }, [theme]);
 
   const active = (href: string, prefix?: string) =>
     prefix ? pathname.startsWith(prefix) : pathname === href;
@@ -55,12 +66,12 @@ export function Nav() {
             <span className="dot" /> R&amp;I Park · IIT Delhi
           </span>
           <button
-            onClick={() => setTweak('theme', tweaks.theme === 'light' ? 'dark' : 'light')}
-            title={tweaks.theme === 'light' ? 'Switch to dark' : 'Switch to light'}
+            onClick={() => setTheme(t => t === 'light' ? 'dark' : 'light')}
+            title={theme === 'light' ? 'Switch to dark' : 'Switch to light'}
             aria-label="Toggle theme"
             style={{ width: 36, height: 36, border: '1px solid var(--line-strong)', borderRadius: '50%', display: 'grid', placeItems: 'center', color: 'var(--text-0)', transition: 'background 0.2s', flexShrink: 0 }}
           >
-            {tweaks.theme === 'light' ? <Icon.moon /> : <Icon.sun />}
+            {theme === 'light' ? <Icon.moon /> : <Icon.sun />}
           </button>
           <span className="nav-cta-mobile-hide">
             <Btn kind="ghost" onClick={() => window.location.href = '/contact'}>Request a Sample</Btn>

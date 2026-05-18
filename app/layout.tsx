@@ -4,8 +4,6 @@ import './globals.css';
 import { Nav } from '@/components/Nav';
 import { Footer } from '@/components/Footer';
 import { ScrollProgress } from '@/components/ScrollProgress';
-import { TweaksProvider } from '@/components/TweaksContext';
-import { TweaksPanel } from '@/components/TweaksPanel';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-sg', display: 'swap' });
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
@@ -20,14 +18,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable}`}>
-      <body>
-        <TweaksProvider>
-          <ScrollProgress />
-          <Nav />
-          {children}
-          <Footer />
-          <TweaksPanel />
-        </TweaksProvider>
+      <body className="mode-safe density-compact">
+        <ScrollProgress />
+        <Nav />
+        {children}
+        <Footer />
       </body>
     </html>
   );
