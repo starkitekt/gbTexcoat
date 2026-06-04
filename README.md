@@ -83,6 +83,6 @@ npm run type-check
 
 ## Contact
 
-**Dr. Neeraj Mandlekar** — Founder & Director  
 R&I Park, Block B · IIT Delhi · New Delhi 110016  
-[info@gbtexcoatsolution.com](mailto:info@gbtexcoatsolution.com) · +91 88518 68235
+[info@gbtexcoatsolution.com](mailto:info@gbtexcoatsolution.com) · +91 88518 68235  
+[gbtexcoat.vercel.app](https://gbtexcoat.vercel.app)
