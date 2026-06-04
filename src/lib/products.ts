@@ -1,23 +1,5 @@
-export interface ProductSpec { k: string; v: string; }
-export interface ProductApplication { t: string; d: string; img?: string; }
-export interface ProductBenefit { t: string; d: string; }
-export interface AccentSpec { v: string; u: string; k: string; }
-
-export interface Product {
-  code: string;
-  n: string;
-  title: string;
-  subtitle: string;
-  eyebrow: string;
-  img: string;
-  imgLabel: string;
-  hero: string;
-  accentSpecs: AccentSpec[];
-  applications: ProductApplication[];
-  benefits: ProductBenefit[];
-  spec: ProductSpec[];
-  layers: string[];
-}
+import type { Product, ProductListItem } from '@/types/products';
+export type { ProductSpec, ProductApplication, ProductBenefit, AccentSpec, Product, ProductListItem } from '@/types/products';
 
 export const PRODUCTS: Record<string, Product> = {
   lightweight: {
@@ -122,7 +104,7 @@ export function getProduct(slug: string): Product | null {
   return PRODUCTS[slug] ?? null;
 }
 
-export const PRODUCT_LIST = [
+export const PRODUCT_LIST: ProductListItem[] = [
   { slug: 'lightweight', code: 'GBT-LS', n: '01', title: 'Lightweight & High-Strength Coated Fabric', subtitle: 'Coated Fabric · Aerospace-grade', d: 'High-performance fabric designed for strength and durability — aerospace-grade hull material for aerostats, airships and tethered balloon systems.', bullets: ['Aerostat envelopes', 'Airship hulls', 'Inflatable structures'], img: '/images/aerostat.jpg', specs: [{ k: 'Areal weight', v: '450 gsm' }, { k: 'Tear strength MD', v: '2400 N' }, { k: 'Thickness', v: '0.78 mm' }, { k: 'Burst pressure', v: '8.5 bar' }] },
   { slug: 'uv-resist', code: 'GBT-UV', n: '02', title: 'UV-Resistant Coated & Laminated Fabric', subtitle: 'Coated & laminated fabric · 25-yr rated', d: 'Engineered to withstand harsh environments — superior weather protection and longevity for outdoor and architectural applications.', bullets: ['Outdoor membranes', 'Shade & shelter systems', 'Industrial covers'], img: '/images/balloon.jpg', specs: [{ k: 'UV rating', v: '25 yr' }, { k: 'Temp range', v: '–40 to +80 °C' }, { k: 'Areal weight', v: '620 gsm' }, { k: 'Spec', v: 'ISO 4892-3' }] },
   { slug: 'tear-strength', code: 'GBT-TS', n: '03', title: 'High Tear-Strength Coated Tensile Fabric', subtitle: 'Structural-grade coated tensile fabric', d: 'Designed for extreme durability with exceptional tear resistance — for demanding structural, canopy and tensile architecture applications.', bullets: ['Tensile architecture', 'Shade structures', 'Load-bearing membranes'], img: '/images/airship.jpg', specs: [{ k: 'Tear strength MD', v: '3200 N' }, { k: 'Tensile strength', v: '950 kg/5cm' }, { k: 'Service life', v: '12 yr' }, { k: 'Areal weight', v: '900 gsm' }] },

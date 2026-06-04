@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Space_Grotesk, Inter, JetBrains_Mono, Instrument_Serif } from 'next/font/google';
 import './globals.css';
-import { Nav } from '@/components/Nav';
-import { Footer } from '@/components/Footer';
+import { Nav } from '@/components/layout/Nav';
+import { Footer } from '@/components/layout/Footer';
 import { ScrollProgress } from '@/components/ScrollProgress';
 
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-sg', display: 'swap' });

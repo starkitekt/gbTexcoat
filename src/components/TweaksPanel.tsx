@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
-import { useTweaks, Tweaks } from './TweaksContext';
-import { Icon } from './ui';
+import { useTweaks, Tweaks } from '@/context/TweaksContext';
+import { Icon } from '@/components/ui';
 
 function RadioGroup<K extends keyof Tweaks>({ label, tweakKey, options }: { label: string; tweakKey: K; options: { value: Tweaks[K]; label: string }[] }) {
   const { tweaks, setTweak } = useTweaks();

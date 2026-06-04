@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Icon, Btn } from './ui';
+import { Icon, Btn } from '@/components/ui';
 
 const productLinks = [
   { href: '/products/lightweight', t: 'Lightweight High-Strength', d: 'GBT-LS / Aerospace-grade' },
