@@ -1,9 +1,5 @@
 # GB Texcoat Solution
 
-[![Live](https://img.shields.io/badge/Deployment-Live-brightgreen)](https://gbtexcoat.vercel.app)
-
-**Live site**: [gbtexcoat.vercel.app](https://gbtexcoat.vercel.app)
-
 GB Texcoat Solution Pvt Ltd manufactures advanced coated and laminated fabrics for aerospace, defence, and industrial applications. This repository contains the company's public-facing website.
 
 ---
@@ -84,5 +80,4 @@ npm run type-check
 ## Contact
 
 R&I Park, Block B · IIT Delhi · New Delhi 110016  
-[info@gbtexcoatsolution.com](mailto:info@gbtexcoatsolution.com) · +91 88518 68235  
-[gbtexcoat.vercel.app](https://gbtexcoat.vercel.app)
+[info@gbtexcoatsolution.com](mailto:info@gbtexcoatsolution.com) · +91 88518 68235
