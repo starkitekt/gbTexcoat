@@ -11,7 +11,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mon
 const instrumentSerif = Instrument_Serif({ subsets: ['latin'], style: ['normal', 'italic'], weight: '400', variable: '--font-is', display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'GB Texcoat Solution — Advanced Coated Fabric Systems',
+  title: 'GB Texcoat Solution: Advanced Coated Fabric Systems',
   description: 'Engineering coated fabrics for aerospace, defence, and industrial applications.',
 };
 
@@ -21,7 +21,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="mode-safe density-compact">
         <ScrollProgress />
         <Nav />
-        {children}
+        <div className="page-transition">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

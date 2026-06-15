@@ -11,7 +11,6 @@ export function Footer() {
   const companyLinks = [
     { href: '/about', t: 'About' },
     { href: '/rd', t: 'R&D' },
-    { href: '/investors', t: 'Investors' },
     { href: '/contact', t: 'Contact' },
   ];
 
@@ -48,8 +47,6 @@ export function Footer() {
         <div className="footer-min-bot">
           <span>© 2024 GB Texcoat Solutions Pvt Ltd</span>
           <span className="footer-min-bot-meta">
-            <span>Founded by Dr. Neeraj Mandlekar</span>
-            <span>·</span>
             <span>Made in India</span>
           </span>
         </div>

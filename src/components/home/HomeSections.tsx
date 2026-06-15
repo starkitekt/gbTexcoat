@@ -33,7 +33,7 @@ export function IndustriesSection() {
           <Eyebrow num="02">Industries we serve</Eyebrow>
           <h2 className="h-display h2" style={{ margin: '20px 0 0 0', maxWidth: '14ch' }}>One material platform. <span style={{ color: 'var(--text-2)' }}>Six demanding domains.</span></h2>
         </div>
-        <p className="lead reveal delay-2" style={{ maxWidth: '38ch' }}>Our coated fabric chemistry is engineered to perform where regular textiles fail — high altitude, harsh UV, structural loads, and prolonged fuel contact.</p>
+        <p className="lead reveal delay-2" style={{ maxWidth: '38ch' }}>Our coated fabric chemistry is engineered to perform where regular textiles fail: high altitude, harsh UV, structural loads, and prolonged fuel contact.</p>
       </div>
       <div>
         {items.map(it => (
@@ -41,7 +41,6 @@ export function IndustriesSection() {
             <span className="n">/{it.n}</span>
             <span className="t">{it.t}</span>
             <span className="d">{it.d}</span>
-            <span className="arr"><Icon.arrow /></span>
           </div>
         ))}
       </div>
@@ -82,52 +81,6 @@ export function EngineeringSolutions() {
   );
 }
 
-/* ===== RESEARCH & INNOVATION ===== */
-export function ResearchInnovation() {
-  const router = useRouter();
-  return (
-    <Section id="research">
-      <div className="grid-2" style={{ alignItems: 'center', gap: 64 }}>
-        <div className="reveal">
-          <Eyebrow num="04">Research &amp; innovation</Eyebrow>
-          <h2 className="h-display h2" style={{ margin: '20px 0 24px 0' }}>Built inside the<br /><span style={{ color: 'var(--accent)' }}>IIT Delhi</span> innovation park.</h2>
-          <p className="lead" style={{ marginBottom: 28 }}>Our lab sits inside the Research &amp; Innovation Park at IIT Delhi — adjacent to materials, polymer, and aerospace research groups. Every coating formulation is iterated against university-grade test infrastructure before it leaves the building.</p>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginBottom: 32 }}>
-            <div>
-              <div style={{ fontFamily: 'var(--f-display)', fontSize: 32, letterSpacing: '-0.02em' }}>12+</div>
-              <div className="mono" style={{ fontSize: 11, color: 'var(--text-3)', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: 4 }}>Test protocols</div>
-            </div>
-            <div>
-              <div style={{ fontFamily: 'var(--f-display)', fontSize: 32, letterSpacing: '-0.02em' }}>4</div>
-              <div className="mono" style={{ fontSize: 11, color: 'var(--text-3)', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: 4 }}>Active R&amp;D streams</div>
-            </div>
-          </div>
-          <Btn kind="ghost" onClick={() => router.push('/rd')}>Tour the lab</Btn>
-        </div>
-        <div className="reveal delay-2">
-          <div className="blueprint">
-            <svg viewBox="0 0 480 300" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
-              <line x1="60" y1="240" x2="440" y2="240" stroke="rgba(59,130,246,0.5)" strokeWidth="0.8"/>
-              <line x1="60" y1="40" x2="60" y2="240" stroke="rgba(59,130,246,0.5)" strokeWidth="0.8"/>
-              <path d="M 60 220 C 120 180, 200 90, 280 70 S 400 60, 440 50" stroke="#3b82f6" strokeWidth="1.5" fill="none"/>
-              <defs><linearGradient id="gradFill" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stopColor="#3b82f6"/><stop offset="100%" stopColor="#3b82f6" stopOpacity="0"/></linearGradient></defs>
-              <path d="M 60 220 C 120 180, 200 90, 280 70 S 400 60, 440 50 L 440 240 L 60 240 Z" fill="url(#gradFill)" opacity="0.3"/>
-              {[[60, 220], [140, 170], [220, 110], [300, 75], [380, 60], [440, 50]].map(([x, y], i) => (
-                <g key={i}><circle cx={x} cy={y} r="3" fill="#22d3ee"/><circle cx={x} cy={y} r="6" fill="none" stroke="#22d3ee" strokeWidth="0.5" opacity="0.5"/></g>
-              ))}
-              <text x="20" y="44" fill="#9ca3af" fontSize="9" fontFamily="JetBrains Mono">TEAR (N)</text>
-              <text x="60" y="260" fill="#9ca3af" fontSize="9" fontFamily="JetBrains Mono">COAT WEIGHT (gsm) →</text>
-              <g><rect x="290" y="80" width="120" height="40" fill="rgba(10,15,28,0.85)" stroke="rgba(59,130,246,0.4)"/><text x="300" y="98" fill="#22d3ee" fontSize="9" fontFamily="JetBrains Mono">GBT-LS · 450 gsm</text><text x="300" y="112" fill="#9ca3af" fontSize="9" fontFamily="JetBrains Mono">2.1× class avg.</text></g>
-            </svg>
-            <div style={{ position: 'absolute', top: 16, left: 16, fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.12em', color: 'var(--cyan)' }}>TEST RIG 03 · TEAR vs. COAT WEIGHT</div>
-            <div style={{ position: 'absolute', bottom: 16, right: 16, fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.12em', color: 'var(--text-3)' }}>ASTM D2261 · 23 °C</div>
-          </div>
-        </div>
-      </div>
-    </Section>
-  );
-}
-
 /* ===== TECHNICAL ADVANTAGES ===== */
 export function TechnicalAdvantages() {
   const advantages = [
@@ -155,8 +108,8 @@ export function ProductSystems() {
   const router = useRouter();
   const tiles = [
     { to: '/products/lightweight', code: 'GBT-LS · 01', title: 'Lightweight & High-Strength Coated Fabric', d: 'High-performance fabric engineered for strength, durability and lightweight construction.', specs: [{ v: '450', u: 'gsm', k: 'Weight' }, { v: '2400', u: 'N', k: 'Tear MD' }, { v: '0.78', u: 'mm', k: 'Thickness' }], img: '/images/aerostat.jpg' },
-    { to: '/products/uv-resist', code: 'GBT-UV · 02', title: 'UV-Resistant Coated & Laminated Fabric', d: 'Engineered to withstand harsh environments — superior weather protection and longevity.', specs: [{ v: '25', u: 'yr', k: 'UV life' }, { v: '+80', u: '°C', k: 'Max temp' }, { v: 'ISO', u: '4892', k: 'Spec' }], img: '/images/balloon.jpg' },
-    { to: '/products/tear-strength', code: 'GBT-TS · 03', title: 'High Tear-Strength Coated Tensile Fabric', d: 'Designed for extreme durability — exceptional tear resistance for demanding applications.', specs: [{ v: '3200', u: 'N', k: 'Tear MD' }, { v: '950', u: 'kg', k: 'Tensile' }, { v: '12', u: 'yr', k: 'Service' }], img: '/images/airship.jpg' },
+    { to: '/products/uv-resist', code: 'GBT-UV · 02', title: 'UV-Resistant Coated & Laminated Fabric', d: 'Engineered to withstand harsh environments with superior weather protection and longevity.', specs: [{ v: '25', u: 'yr', k: 'UV life' }, { v: '+80', u: '°C', k: 'Max temp' }, { v: 'ISO', u: '4892', k: 'Spec' }], img: '/images/balloon.jpg' },
+    { to: '/products/tear-strength', code: 'GBT-TS · 03', title: 'High Tear-Strength Coated Tensile Fabric', d: 'Designed for extreme durability with exceptional tear resistance for demanding applications.', specs: [{ v: '3200', u: 'N', k: 'Tear MD' }, { v: '950', u: 'kg', k: 'Tensile' }, { v: '12', u: 'yr', k: 'Service' }], img: '/images/airship.jpg' },
     { to: '/products/fuel', code: 'GBT-FX · 04', title: 'High-Performance Flexible Fuel Storage', d: 'Durable, lightweight, leak-proof fuel storage containers for extreme environments.', specs: [{ v: '500–10k', u: 'L', k: 'Capacity' }, { v: 'STANAG', u: '', k: 'Certified' }, { v: 'JET-A1', u: '', k: 'Fluids' }], img: '/images/fuel.jpg' },
   ];
   return (
@@ -180,7 +133,6 @@ export function ProductSystems() {
                 </>
               ) : <FabricPlaceholder />}
               <div style={{ position: 'absolute', top: 16, left: 16, fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.16em', color: 'var(--cyan)' }}>{t.code}</div>
-              <div style={{ position: 'absolute', bottom: 16, right: 16, width: 32, height: 32, borderRadius: '50%', background: 'rgba(10,15,28,0.7)', border: '1px solid var(--line)', display: 'grid', placeItems: 'center', color: 'var(--text-0)' }}><Icon.arrowUp /></div>
             </div>
             <div className="product-tile-body">
               <div className="code">{t.code}</div>
@@ -277,9 +229,9 @@ export function ApplicationShowcase() {
 /* ===== WHY GB TEXCOAT ===== */
 export function WhyTexcoat() {
   const reasons = [
-    { t: 'Aerospace heritage', d: 'Our material chemistry is targeted at lighter-than-air platforms and aerial systems — high altitude, harsh UV, and prolonged exposure.' },
+    { t: 'Aerospace heritage', d: 'Our material chemistry is targeted at lighter-than-air platforms and aerial systems: high altitude, harsh UV, and prolonged exposure.' },
     { t: 'Lab-adjacent manufacturing', d: 'Co-located with IIT Delhi\'s polymer, materials and aerospace research groups. Hypotheses validated before they ship.' },
-    { t: 'Engineered, not commodity', d: 'Every batch comes with traceable QC, test reports and engineering documentation — not just a bill of materials.' },
+    { t: 'Engineered, not commodity', d: 'Every batch comes with traceable QC, test reports and engineering documentation, not just a bill of materials.' },
     { t: 'Defence-ready paperwork', d: 'Compliance to ASTM, MIL-STD and STANAG. Suitable for tender response and field certification.' },
   ];
   return (
@@ -288,7 +240,7 @@ export function WhyTexcoat() {
         <div className="reveal" style={{ position: 'sticky', top: 100 }}>
           <Eyebrow num="07">Why GB Texcoat</Eyebrow>
           <h2 className="h-display h2" style={{ margin: '20px 0 24px 0' }}>A material partner, <span style={{ color: 'var(--text-2)' }}>not a textile vendor.</span></h2>
-          <p className="lead">Engineering teams choose us because we treat coated fabric as a system — substrate, coating, weave and seam together — and we document every variable.</p>
+          <p className="lead">Engineering teams choose us because we treat coated fabric as a system: substrate, coating, weave and seam together. We document every variable.</p>
         </div>
         <div>
           {reasons.map((r, i) => (
@@ -300,37 +252,6 @@ export function WhyTexcoat() {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-/* ===== INVESTOR TEASER ===== */
-export function InvestorTeaser() {
-  const router = useRouter();
-  return (
-    <Section id="investor" style={{ background: 'var(--bg-0)' }}>
-      <div className="card reveal" style={{ padding: 'clamp(40px,6vw,80px)', background: 'linear-gradient(135deg, var(--bg-2) 0%, var(--bg-1) 100%)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: 0, right: 0, width: '50%', height: '100%', background: 'radial-gradient(ellipse at top right, rgba(59,130,246,0.15), transparent 60%)', pointerEvents: 'none' }} />
-        <div className="grid-2" style={{ gap: 64, alignItems: 'center', position: 'relative' }}>
-          <div>
-            <Eyebrow num="09">Investor opportunity</Eyebrow>
-            <h2 className="h-display h2" style={{ margin: '20px 0 24px 0' }}>The global coated-fabric market is <span style={{ color: 'var(--accent)' }}>$28B</span> and growing.</h2>
-            <p className="lead">We are building a vertically-integrated coated-fabric manufacturer for the Indian aerospace and defence supply chain — and the export market beyond it.</p>
-            <div style={{ marginTop: 32, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-              <Btn kind="primary" onClick={() => router.push('/investors')}>Investor brief</Btn>
-              <Btn kind="ghost" arrow={false} onClick={() => router.push('/contact')}>Talk to leadership</Btn>
-            </div>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-            {[{ v: '$28B', k: 'Global market size' }, { v: '6.8%', k: 'Sector CAGR' }, { v: '70%', k: 'India market import-dependent' }, { v: '4', k: 'Active product families' }].map((s, i) => (
-              <div key={i} className="card" style={{ padding: 24 }}>
-                <div style={{ fontFamily: 'var(--f-display)', fontSize: 'clamp(28px,3vw,40px)', letterSpacing: '-0.025em' }}>{s.v}</div>
-                <div className="mono" style={{ fontSize: 10.5, color: 'var(--text-3)', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: 6 }}>{s.k}</div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </Section>

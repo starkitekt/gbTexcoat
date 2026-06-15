@@ -11,7 +11,7 @@ interface BtnProps {
   [k: string]: unknown;
 }
 
-export function Btn({ children, kind = 'primary', onClick, arrow = true, className = '', ...rest }: BtnProps) {
+export function Btn({ children, kind = 'primary', onClick, arrow = false, className = '', ...rest }: BtnProps) {
   const cls = kind === 'primary' ? 'btn btn-primary' : kind === 'mono' ? 'btn btn-mono' : 'btn btn-ghost';
   return (
     <button className={`${cls} ${className}`} onClick={onClick} {...rest}>

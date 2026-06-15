@@ -9,7 +9,7 @@ export default function ProductsPage() {
     <main>
       <PageHead
         title={<>Engineered coated-fabric systems.</>}
-        subtitle="Four product families, each tuned for a specific failure mode — weight, weathering, tearing or fluid containment. Pick a family or talk to engineering about a non-standard spec."
+        subtitle="Four product families, each tuned for a specific failure mode: weight, weathering, tearing or fluid containment. Pick a family or talk to engineering about a non-standard spec."
         extra={
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Btn kind="primary" onClick={() => router.push('/contact')}>Request a spec sheet</Btn>
@@ -34,7 +34,7 @@ export default function ProductsPage() {
           <div className="reveal">
             <Eyebrow num="04">Need something non-standard?</Eyebrow>
             <h2 className="h-display h2" style={{ margin: '20px 0 20px 0' }}>Custom <span style={{ color: 'var(--accent)' }}>formulation</span> programs.</h2>
-            <p className="lead" style={{ marginBottom: 24 }}>Many engineering teams arrive with a spec that doesn&apos;t fit a catalogue. We run paid characterisation cycles with shared data — typical lead time 6 to 14 weeks.</p>
+            <p className="lead" style={{ marginBottom: 24 }}>Many engineering teams arrive with a spec that doesn&apos;t fit a catalogue. We run paid characterisation cycles with shared data. Typical lead time 6 to 14 weeks.</p>
             <Btn kind="primary" onClick={() => router.push('/contact')}>Start a custom program</Btn>
           </div>
           <div className="reveal delay-2">

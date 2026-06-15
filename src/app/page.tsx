@@ -1,5 +1,4 @@
-import { HomeHero } from '@/components/home/HomeHero';
-import { TickerBar, IndustriesSection, EngineeringSolutions, ResearchInnovation, TechnicalAdvantages, ProductSystems, ApplicationShowcase, WhyTexcoat, ClientsSection, InvestorTeaser, ContactCTA } from '@/components/home/HomeSections';
+import { HomeHero, TickerBar, IndustriesSection, EngineeringSolutions, TechnicalAdvantages, ProductSystems, ApplicationShowcase, TestimonialsSection, WhyTexcoat, ClientsSection, ContactCTA } from '@/components/home';
 
 export default function HomePage() {
   return (
@@ -8,13 +7,12 @@ export default function HomePage() {
       <TickerBar />
       <IndustriesSection />
       <EngineeringSolutions />
-      <ResearchInnovation />
       <TechnicalAdvantages />
       <ProductSystems />
       <ApplicationShowcase />
+      <TestimonialsSection />
       <WhyTexcoat />
       <ClientsSection />
-      <InvestorTeaser />
       <ContactCTA />
     </main>
   );

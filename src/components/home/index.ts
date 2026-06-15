@@ -1,2 +1,3 @@
 export { HomeHero } from './HomeHero';
-export { TickerBar, IndustriesSection, EngineeringSolutions, ResearchInnovation, TechnicalAdvantages, ProductSystems, ApplicationShowcase, WhyTexcoat, ClientsSection, InvestorTeaser, ContactCTA } from './HomeSections';
+export { TickerBar, IndustriesSection, EngineeringSolutions, TechnicalAdvantages, ProductSystems, ApplicationShowcase, WhyTexcoat, ClientsSection, ContactCTA } from './HomeSections';
+export { TestimonialsSection } from './TestimonialsSection';

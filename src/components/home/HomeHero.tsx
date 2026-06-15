@@ -146,10 +146,10 @@ export function HomeHero() {
       <div className="container hero-content">
         <Eyebrow num="GBT · EST. 2024">Crafting Excellence</Eyebrow>
         <h1 className="hero-title">
-          Fabrics<br />for <span className="em">specialized</span><br />applications.
+          Fabrics for<br /><span className="em">specialized</span> applications.
         </h1>
         <p className="lead" style={{ maxWidth: '58ch', marginTop: 12 }}>
-          Innovative solutions for high-performance inflatable structures. Lightweight, high-strength, durable, weather-resistant coated and laminated fabrics — engineered for aerostats, airships, tethered balloons, fuel storage and tensile architecture.
+          Our advanced multifaceted textiles are engineered for mission-critical applications: aerostats, airships, tethered platforms, portable fuel systems and tensile architecture. Built to perform where regular textiles fail.
         </p>
         <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
           <Btn kind="primary" onClick={() => router.push('/products')}>Explore engineered systems</Btn>

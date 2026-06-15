@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { Section, PageHead, Eyebrow, Btn, ContactStrip, useReveal } from '@/components/ui';
+import { Section, PageHead, Eyebrow, Btn, Icon, ContactStrip, useReveal } from '@/components/ui';
+import { PRODUCT_LIST } from '@/lib/products';
 
 export default function RDPage() {
   const router = useRouter();
@@ -19,10 +20,128 @@ export default function RDPage() {
         }
       />
 
-      {/* Research streams */}
+      {/* NEW: What is our tech platform for? */}
+      <Section>
+        <div className="grid-2" style={{ gap: 64, alignItems: 'start' }}>
+          <div className="reveal">
+            <Eyebrow num="01">Technology platform</Eyebrow>
+            <h2 className="h-display h2" style={{ margin: '20px 0 24px 0' }}>What is our <span style={{ color: 'var(--accent)' }}>technology platform</span> for?</h2>
+            <p className="lead" style={{ marginBottom: 20 }}>We engineer advanced coating and lamination systems for extreme-environment applications, where conventional textiles degrade, fail, or simply cannot perform.</p>
+            <p style={{ color: 'var(--text-2)' }}>Our platform targets Lighter-Than-Air systems (aerostats, airships, tethered balloons), inflatable structures, tensile architecture, and fuel containment, applications that demand multifunctional material properties operating under sustained stress.</p>
+          </div>
+          <div className="reveal delay-2">
+            <div className="grid-2" style={{ gap: 16 }}>
+              {[
+                { icon: Icon.shield, t: 'Gas barrier', d: 'Helium retention and fuel impermeability through multilayer construction.' },
+                { icon: Icon.weight, t: 'High strength', d: 'Optimised weave + coating for maximum strength-to-weight performance.' },
+                { icon: Icon.sun, t: 'UV resistance', d: '25-year rated service life under continuous outdoor exposure.' },
+                { icon: Icon.drop, t: 'Waterproofing', d: 'Hydrostatic head performance for all-weather operation.' },
+                { icon: Icon.flame, t: 'Flame retardancy', d: 'Fire-rated coatings for defence and architectural compliance.' },
+                { icon: Icon.wind, t: 'Thermal stability', d: '–40 to +80°C operating range across coating chemistries.' },
+              ].map((p, i) => {
+                const Ic = p.icon;
+                return (
+                  <div key={i} className="card pad" style={{ padding: 20 }}>
+                    <div style={{ width: 34, height: 34, borderRadius: 8, background: 'var(--accent-soft)', display: 'grid', placeItems: 'center', color: 'var(--accent)', marginBottom: 12 }}><Ic /></div>
+                    <h5 style={{ fontFamily: 'var(--f-display)', fontSize: 15, margin: '0 0 4px 0', fontWeight: 500 }}>{p.t}</h5>
+                    <p style={{ color: 'var(--text-2)', margin: 0, fontSize: 12.5 }}>{p.d}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* NEW: What innovations have we achieved? */}
+      <Section style={{ background: 'var(--bg-0)' }}>
+        <div className="reveal" style={{ marginBottom: 48 }}>
+          <Eyebrow num="02">Innovations achieved</Eyebrow>
+          <h2 className="h-display h2" style={{ margin: '20px 0 0 0' }}>What <span style={{ color: 'var(--accent)' }}>innovations</span> have we achieved?</h2>
+        </div>
+        <div className="grid-4 reveal" style={{ marginBottom: 48 }}>
+          {[
+            { v: '2.1×', l: 'Tear strength vs. industry baseline' },
+            { v: '–32%', l: 'Weight reduction on aerostat envelope' },
+            { v: '25 yr', l: 'UV-rated service life' },
+            { v: 'MIL-STD', l: 'Defence test compliance' },
+          ].map((s, i) => (
+            <div key={i} style={{ padding: '28px 24px', borderLeft: i === 0 ? 'none' : '1px solid var(--line)' }}>
+              <div style={{ fontFamily: 'var(--f-display)', fontSize: 'clamp(28px,3vw,44px)', letterSpacing: '-0.03em' }}>{s.v}</div>
+              <p style={{ margin: '8px 0 0', color: 'var(--text-2)', fontSize: 13 }}>{s.l}</p>
+            </div>
+          ))}
+        </div>
+        <div className="grid-2">
+          {[
+            { date: 'MAR 2024', event: 'TRL-6 achieved', detail: 'Technology validated in relevant environment. Prototype meets all target specifications.' },
+            { date: 'APR 2025', event: 'First DRDO order', detail: 'First paid order delivered to the Defence Research and Development Organisation.' },
+            { date: 'JUN 2026', event: 'Fuel tank field validation', detail: 'Flexible fuel storage tanks approved for field validation by the Indian Army.' },
+            { date: 'JUN 2026', event: 'AkashNetra aerostat tested', detail: 'Aerostat surveillance system tested and cleared for field validation.' },
+          ].map((m, i) => (
+            <div key={i} className={`card pad reveal delay-${(i % 2) + 1}`} style={{ padding: 24 }}>
+              <div className="mono" style={{ fontSize: 10, color: 'var(--cyan)', letterSpacing: '0.14em', marginBottom: 10 }}>{m.date}</div>
+              <h4 style={{ fontFamily: 'var(--f-display)', fontSize: 20, margin: '0 0 8px 0', fontWeight: 500, letterSpacing: '-0.01em' }}>{m.event}</h4>
+              <p style={{ color: 'var(--text-2)', margin: 0, fontSize: 13.5 }}>{m.detail}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* NEW: What are our products? */}
+      <Section>
+        <div className="reveal" style={{ marginBottom: 48 }}>
+          <Eyebrow num="03">Product portfolio</Eyebrow>
+          <h2 className="h-display h2" style={{ margin: '20px 0 0 0' }}>What are our <span style={{ color: 'var(--accent)' }}>products?</span></h2>
+        </div>
+        <div className="grid-2">
+          {PRODUCT_LIST.map((p, i) => (
+            <div key={p.slug} className={`card pad reveal delay-${(i % 2) + 1}`} style={{ padding: 28, cursor: 'pointer' }} onClick={() => router.push(`/products/${p.slug}`)}>
+              <div className="between" style={{ marginBottom: 16 }}>
+                <span className="badge">{p.code}</span>
+                <span className="mono" style={{ fontSize: 10, color: 'var(--text-3)', letterSpacing: '0.14em' }}>{p.n} / 04</span>
+              </div>
+              <h4 style={{ fontFamily: 'var(--f-display)', fontSize: 22, margin: '0 0 10px 0', fontWeight: 500, letterSpacing: '-0.015em' }}>{p.title}</h4>
+              <p style={{ color: 'var(--text-2)', margin: '0 0 20px 0', fontSize: 14 }}>{p.d}</p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12 }}>
+                {p.specs.map(s => (
+                  <div key={s.k}>
+                    <div style={{ fontFamily: 'var(--f-display)', fontSize: 16, letterSpacing: '-0.01em' }}>{s.v}</div>
+                    <div className="mono" style={{ fontSize: 9.5, color: 'var(--text-3)', letterSpacing: '0.1em', marginTop: 2 }}>{s.k.toUpperCase()}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* NEW: Innovation pipeline */}
+      <Section style={{ background: 'var(--bg-0)' }}>
+        <div className="reveal" style={{ marginBottom: 48 }}>
+          <Eyebrow num="04">Innovation pipeline</Eyebrow>
+          <h2 className="h-display h2" style={{ margin: '20px 0 0 0' }}>What&apos;s in our <span style={{ color: 'var(--accent)' }}>pipeline?</span></h2>
+        </div>
+        <div className="grid-2">
+          {[
+            { t: 'Next-gen fluoropolymer systems', d: 'Advancing PVDF and fluorinated coating chemistries for enhanced chemical resistance, fuel barrier performance, and extended service life in extreme environments.', badge: 'IN PROGRESS' },
+            { t: 'Expanded weave geometries', d: 'Developing novel ripstop and hybrid weave architectures that optimise tear propagation resistance while reducing areal weight for LTA applications.', badge: 'R&D' },
+            { t: 'Field-life correlation data', d: 'Building accelerated ageing to real-world performance correlation curves, enabling accurate service-life predictions for defence and aerospace tender response.', badge: 'DATA COLLECTION' },
+            { t: 'Smart material integration', d: 'Exploring embedded sensor layers and structural health monitoring capability for next-generation aerostat envelopes and critical fuel containment systems.', badge: 'EXPLORATORY' },
+          ].map((p, i) => (
+            <div key={i} className={`card pad reveal delay-${(i % 2) + 1}`} style={{ padding: 28 }}>
+              <div className="badge" style={{ marginBottom: 16 }}>{p.badge}</div>
+              <h4 style={{ fontFamily: 'var(--f-display)', fontSize: 22, margin: '0 0 10px 0', fontWeight: 500, letterSpacing: '-0.015em' }}>{p.t}</h4>
+              <p style={{ color: 'var(--text-2)', margin: 0 }}>{p.d}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* EXISTING: Research streams */}
       <Section>
         <div className="reveal" style={{ marginBottom: 56 }}>
-          <Eyebrow num="01">Active research streams</Eyebrow>
+          <Eyebrow num="05">Active research streams</Eyebrow>
           <h2 className="h-display h2" style={{ margin: '20px 0 0 0', maxWidth: '20ch' }}>
             Four streams. <span>Always running.</span>
           </h2>
@@ -49,17 +168,17 @@ export default function RDPage() {
         </div>
       </Section>
 
-      {/* Test infrastructure */}
+      {/* EXISTING: Test infrastructure */}
       <Section style={{ background: 'var(--bg-0)' }}>
         <div className="grid-2" style={{ gap: 64, alignItems: 'start' }}>
           <div className="reveal">
-            <Eyebrow num="02">Test infrastructure</Eyebrow>
+            <Eyebrow num="06">Test infrastructure</Eyebrow>
             <h2 className="h-display h2" style={{ margin: '20px 0 24px 0' }}>
               Twelve test protocols, <span>in-house.</span>
             </h2>
             <p className="lead" style={{ marginBottom: 28 }}>
               We test materials before we sell them. Tear, tensile, peel adhesion, hydrostatic head, accelerated UV,
-              fluid permeation and flex fatigue rigs all live in the lab — and the data sheet is built from each batch&apos;s own readings.
+              fluid permeation and flex fatigue rigs all live in the lab, and the data sheet is built from each batch&apos;s own readings.
             </p>
           </div>
           <div className="reveal delay-2">
@@ -85,10 +204,10 @@ export default function RDPage() {
         </div>
       </Section>
 
-      {/* Process flow */}
+      {/* EXISTING: Process flow */}
       <Section>
         <div className="reveal" style={{ marginBottom: 48 }}>
-          <Eyebrow num="03">R&amp;D workflow</Eyebrow>
+          <Eyebrow num="07">R&amp;D workflow</Eyebrow>
           <h2 className="h-display h2" style={{ margin: '20px 0 0 0' }}>From spec to <span>production batch.</span></h2>
         </div>
         <div className="grid-6 reveal">
@@ -111,16 +230,49 @@ export default function RDPage() {
         </div>
       </Section>
 
-      {/* Lab telemetry */}
+      {/* EXISTING: Lab telemetry */}
       <Section style={{ background: 'var(--bg-0)' }}>
         <div className="reveal" style={{ marginBottom: 36 }}>
-          <Eyebrow num="04">Lab telemetry</Eyebrow>
+          <Eyebrow num="08">Lab telemetry</Eyebrow>
           <h2 className="h-display h2" style={{ margin: '20px 0 0 0' }}>What&apos;s on the rigs <span>right now.</span></h2>
         </div>
         <div className="grid-3">
           <LabPanel title="UV CHAMBER 02" status="RUNNING" metric="3,840 hrs" sub="ISO 4892-3 cycle · Sample GBT-UV-26.05.B" chart={<UVChart />} />
           <LabPanel title="TEAR RIG 03" status="STANDBY" metric="2,412 N" sub="Last run · GBT-LS-26.04.D" chart={<TearChart />} />
           <LabPanel title="FUEL PERMEATION 01" status="RUNNING" metric="4.1 g/m²/day" sub="Jet A-1 · GBT-FX-26.05.A" chart={<PermeationChart />} />
+        </div>
+      </Section>
+
+      {/* NEW: Research Collaborators & Partners */}
+      <Section>
+        <div className="reveal" style={{ marginBottom: 48 }}>
+          <Eyebrow num="09">Research collaborators &amp; partners</Eyebrow>
+          <h2 className="h-display h2" style={{ margin: '20px 0 0 0' }}>Building together with <span style={{ color: 'var(--accent)' }}>domain experts.</span></h2>
+          <p className="lead" style={{ marginTop: 16, maxWidth: '52ch' }}>We collaborate with academic institutions, defence laboratories and industry partners to advance coated-fabric technology.</p>
+        </div>
+        <div className="grid-3 reveal">
+          {[
+            { name: 'Research Partner', focus: 'ACADEMIC' },
+            { name: 'Defence Lab', focus: 'TESTING' },
+            { name: 'Industry Partner', focus: 'MANUFACTURING' },
+            { name: 'Certification Body', focus: 'COMPLIANCE' },
+            { name: 'Material Supplier', focus: 'RAW MATERIALS' },
+            { name: 'Co-Development', focus: 'JOINT R&D' },
+          ].map((c, i) => (
+            <div key={i} className="collab-card">
+              <div className="logo-placeholder">
+                <Icon.plus />
+              </div>
+              <div className="collab-name">{c.name}</div>
+              <div className="collab-focus">{c.focus}</div>
+            </div>
+          ))}
+        </div>
+        <div className="reveal" style={{ marginTop: 32, textAlign: 'center' }}>
+          <p className="mono" style={{ fontSize: 11, color: 'var(--text-3)', letterSpacing: '0.1em' }}>DETAILS COMING SOON. REACH OUT TO LEARN ABOUT COLLABORATION OPPORTUNITIES.</p>
+          <div style={{ marginTop: 16 }}>
+            <Btn kind="ghost" onClick={() => router.push('/contact')}>Discuss collaboration</Btn>
+          </div>
         </div>
       </Section>
 
