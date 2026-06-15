@@ -1,21 +1,29 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { Section, PageHead, Eyebrow, Btn, FabricPlaceholder, ContactStrip } from '@/components/ui';
+import { Section, PageHero, Eyebrow, Btn, FabricPlaceholder, ContactStrip } from '@/components/ui';
 import { PRODUCT_LIST } from '@/lib/products';
 
 export default function ProductsPage() {
   const router = useRouter();
   return (
     <main>
-      <PageHead
-        title={<>Engineered coated-fabric systems.</>}
-        subtitle="Four product families, each tuned for a specific failure mode: weight, weathering, tearing or fluid containment. Pick a family or talk to engineering about a non-standard spec."
+      <PageHero
+        eyebrow="Product catalogue"
+        title={<>Four fabric systems.<br /><span>One</span> engineering platform.</>}
+        subtitle="Each family targets a distinct failure mode: weight, weathering, tear, or fluid containment. Speak to engineering for non-standard specs."
         extra={
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Btn kind="primary" onClick={() => router.push('/contact')}>Request a spec sheet</Btn>
             <Btn kind="ghost" onClick={() => router.push('/rd')}>How we test</Btn>
           </div>
         }
+        images={[
+          { src: 'https://images.unsplash.com/photo-heUcr8fIRJ0?w=1920&q=85&auto=format&fit=crop', alt: 'Close-up of technical woven fabric material' },
+          { src: 'https://images.unsplash.com/photo-fecYgHu6Hoc?w=1920&q=85&auto=format&fit=crop', alt: 'Blue coated fabric texture detail' },
+          { src: 'https://images.unsplash.com/photo-YMuHZNTSVGE?w=1920&q=85&auto=format&fit=crop', alt: 'Black technical cloth texture close-up' },
+          { src: 'https://images.unsplash.com/photo-3xb9ezcoWWA?w=1920&q=85&auto=format&fit=crop', alt: 'Gray knitted fabric surface texture' },
+          { src: 'https://images.unsplash.com/photo-gep5qKPlDzA?w=1920&q=85&auto=format&fit=crop', alt: 'Industrial woven fabric weave pattern' },
+        ]}
       />
 
       <Section>

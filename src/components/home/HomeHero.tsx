@@ -4,146 +4,110 @@ import { useEffect, useState } from 'react';
 import { Btn, Eyebrow, Icon, Stat } from '../ui';
 
 const SLIDES = [
-  { src: '/Hero Image/Aerostat Spherical.png',  label: 'AEROSTAT · SPHERICAL PLATFORM',  sub: 'GBT-LS · COATED ENVELOPE' },
-  { src: '/Hero Image/Aerostat Top view.png',    label: 'AEROSTAT · AERIAL TOP VIEW',      sub: 'GBT-LS · COATED FABRIC' },
-  { src: '/Hero Image/Airship image.png',        label: 'AIRSHIP · HEAVY-LIFT HULL',       sub: 'GBT-LS · LAMINATED SHELL' },
-  { src: '/Hero Image/Fuel tank.png',            label: 'FUEL CONTAINER · PORTABLE',       sub: 'GBT-FX · BARRIER MEMBRANE' },
+  {
+    src: 'https://images.unsplash.com/photo-CnTco09pHKM?w=1920&q=85&auto=format&fit=crop',
+    label: 'AEROSTAT · SPHERICAL PLATFORM', sub: 'GBT-LS · COATED ENVELOPE',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-DuBNA1QMpPA?w=1920&q=85&auto=format&fit=crop',
+    label: 'AEROSTAT · DAWN OPERATIONS', sub: 'GBT-LS · LAMINATED HULL',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-kNO-lvgNan8?w=1920&q=85&auto=format&fit=crop',
+    label: 'LTA · HIGH-ALTITUDE SYSTEMS', sub: 'GBT-LS · ENVELOPE FABRIC',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-ls03C02UsGg?w=1920&q=85&auto=format&fit=crop',
+    label: 'BALLOON · SURVEILLANCE FLEET', sub: 'GBT-FX · BARRIER MEMBRANE',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-hpTH5b6mo2s?w=1920&q=85&auto=format&fit=crop',
+    label: 'AIRSHIP · HEAVY-LIFT HULL', sub: 'GBT-LS · COATED FABRIC',
+  },
 ];
 
-const INTERVAL = 4000;
+const INTERVAL = 5000;
 
-function HeroVisual() {
+export function HomeHero() {
+  const router = useRouter();
   const [current, setCurrent] = useState(0);
-  const [prev, setPrev] = useState<number | null>(null);
   const [paused, setPaused] = useState(false);
 
   const go = (idx: number) => {
-    setPrev(current);
     setCurrent(idx);
+    setPaused(true);
+    setTimeout(() => setPaused(false), INTERVAL);
   };
 
-  const handlePrev = () => { go((current - 1 + SLIDES.length) % SLIDES.length); setPaused(true); setTimeout(() => setPaused(false), INTERVAL); };
-  const handleNext = () => { go((current + 1) % SLIDES.length); setPaused(true); setTimeout(() => setPaused(false), INTERVAL); };
-  const handleDot  = (i: number) => { go(i); setPaused(true); setTimeout(() => setPaused(false), INTERVAL); };
-
-  // Auto-advance: restarts whenever current changes or pause lifts
   useEffect(() => {
     if (paused) return;
-    const id = setTimeout(() => {
-      setPrev(current);
-      setCurrent(c => (c + 1) % SLIDES.length);
-    }, INTERVAL);
+    const id = setTimeout(() => setCurrent(c => (c + 1) % SLIDES.length), INTERVAL);
     return () => clearTimeout(id);
   }, [current, paused]);
 
   return (
-    <div
-      className="hero-visual-layer"
-      style={{
-        position: 'absolute', top: 0, right: 0, bottom: 0, left: '38%',
-        maskImage: 'linear-gradient(to right, transparent 0%, black 28%, black 100%)',
-        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 28%, black 100%)',
-        overflow: 'hidden',
-      }}
-    >
-      {SLIDES.map((slide, i) => {
-        const isActive = i === current;
-        const isPrev  = i === prev;
-        return (
-          <div
-            key={slide.src}
-            style={{
-              position: 'absolute', inset: 0,
-              opacity: isActive ? 1 : 0,
-              transition: isActive || isPrev ? 'opacity 0.7s ease' : 'none',
-              zIndex: isActive ? 2 : isPrev ? 1 : 0,
-            }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={slide.src} alt=""
-              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.85) contrast(1.05) saturate(0.85)' }}
-            />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, var(--bg-1) 0%, rgba(10,15,28,0.3) 40%, transparent 70%), radial-gradient(ellipse at right, rgba(59,130,246,0.18), transparent 60%)' }} />
-            <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
-              <g stroke="#22d3ee" strokeWidth="0.7" fill="none" opacity="0.7">
-                <path d="M 560 200 l 30 -20 l 40 0"/>
-                <circle cx="560" cy="200" r="3" fill="#22d3ee" stroke="none"/>
-                <text x="640" y="184" fill="#22d3ee" fontSize="10" fontFamily="JetBrains Mono">{slide.label}</text>
-                <text x="640" y="196" fill="#9ca3af" fontSize="9" fontFamily="JetBrains Mono">{slide.sub}</text>
-              </g>
-            </svg>
-          </div>
-        );
-      })}
-
-      {/* Arrow controls */}
-      <button
-        onClick={handlePrev}
-        aria-label="Previous image"
-        style={{
-          position: 'absolute', left: 20, top: '50%', transform: 'translateY(-50%)',
-          zIndex: 10, background: 'rgba(6,9,15,0.55)', border: '1px solid rgba(255,255,255,0.12)',
-          borderRadius: 4, width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center',
-          cursor: 'pointer', color: '#e2e8f0', transition: 'background 0.2s',
-        }}
-        onMouseEnter={e => (e.currentTarget.style.background = 'rgba(59,130,246,0.35)')}
-        onMouseLeave={e => (e.currentTarget.style.background = 'rgba(6,9,15,0.55)')}
-      >
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-      </button>
-      <button
-        onClick={handleNext}
-        aria-label="Next image"
-        style={{
-          position: 'absolute', right: 20, top: '50%', transform: 'translateY(-50%)',
-          zIndex: 10, background: 'rgba(6,9,15,0.55)', border: '1px solid rgba(255,255,255,0.12)',
-          borderRadius: 4, width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center',
-          cursor: 'pointer', color: '#e2e8f0', transition: 'background 0.2s',
-        }}
-        onMouseEnter={e => (e.currentTarget.style.background = 'rgba(59,130,246,0.35)')}
-        onMouseLeave={e => (e.currentTarget.style.background = 'rgba(6,9,15,0.55)')}
-      >
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-      </button>
-
-      {/* Dot indicators */}
-      <div style={{ position: 'absolute', bottom: 20, left: '50%', transform: 'translateX(-50%)', zIndex: 10, display: 'flex', gap: 6 }}>
-        {SLIDES.map((_, i) => (
-          <button
-            key={i}
-            aria-label={`Go to slide ${i + 1}`}
-            onClick={() => handleDot(i)}
-            style={{
-              width: i === current ? 20 : 6, height: 6, borderRadius: 3, border: 'none',
-              background: i === current ? '#3b82f6' : 'rgba(255,255,255,0.3)',
-              cursor: 'pointer', padding: 0, transition: 'width 0.3s, background 0.3s',
-            }}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-export function HomeHero() {
-  const router = useRouter();
-
-  return (
     <section className="hero">
-      <div className="hero-bg" />
-      <div className="hud hud-tl">
+      {/* Full-bleed image carousel */}
+      {SLIDES.map((slide, i) => (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          key={slide.src}
+          src={slide.src}
+          alt=""
+          style={{
+            position: 'absolute', inset: 0, width: '100%', height: '100%',
+            objectFit: 'cover',
+            opacity: i === current ? 1 : 0,
+            transition: 'opacity 0.8s ease',
+            zIndex: i === current ? 1 : 0,
+            filter: 'brightness(0.72) saturate(0.85)',
+          }}
+        />
+      ))}
+
+      {/* Left-to-right gradient overlay */}
+      <div style={{
+        position: 'absolute', inset: 0, zIndex: 2,
+        background: [
+          'linear-gradient(to right, rgba(6,9,15,1) 0%, rgba(6,9,15,0.97) 12%, rgba(6,9,15,0.88) 22%, rgba(6,9,15,0.65) 32%, rgba(6,9,15,0.20) 40%, rgba(6,9,15,0) 52%)',
+          'linear-gradient(180deg, rgba(6,9,15,0.4) 0%, transparent 30%, transparent 65%, rgba(6,9,15,0.7) 100%)',
+        ].join(', '),
+      }} />
+
+      {/* Subtle grid texture */}
+      <div style={{
+        position: 'absolute', inset: 0, zIndex: 3,
+        backgroundImage: 'linear-gradient(to right,rgba(148,163,184,0.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(148,163,184,0.04) 1px,transparent 1px)',
+        backgroundSize: '80px 80px',
+        maskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 65%)',
+        WebkitMaskImage: 'linear-gradient(to right, black 0%, black 40%, transparent 65%)',
+        pointerEvents: 'none',
+      }} />
+
+      {/* HUD overlays */}
+      <div className="hud hud-tl" style={{ zIndex: 5 }}>
         <div className="line">SECTOR · AEROSPACE &amp; DEFENSE</div>
         <div className="line">FACILITY · IIT-D R&amp;I PARK</div>
         <div className="line">STATUS · <span className="v">OPERATIONAL</span></div>
       </div>
-      <div className="hud hud-tr">
+      <div className="hud hud-tr" style={{ zIndex: 5 }}>
         <div className="line">N 28°32&apos;42&quot; · E 77°11&apos;33&quot;</div>
         <div className="line">REL <span className="v">26.05.01</span></div>
         <div className="line"><span className="v">SCROLL ↓</span></div>
       </div>
-      <HeroVisual />
-      <div className="container hero-content">
+
+      {/* Slide label — bottom right */}
+      <div style={{
+        position: 'absolute', bottom: 24, right: 24, zIndex: 5,
+        fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.12em',
+        textTransform: 'uppercase', textAlign: 'right', pointerEvents: 'none',
+      }}>
+        <div style={{ color: 'var(--cyan)' }}>{SLIDES[current].label}</div>
+        <div style={{ color: 'var(--text-3)', marginTop: 2 }}>{SLIDES[current].sub}</div>
+      </div>
+
+      {/* Content */}
+      <div className="container hero-content" style={{ position: 'relative', zIndex: 5 }}>
         <Eyebrow num="GBT · EST. 2024">Crafting Excellence</Eyebrow>
         <h1 className="hero-title">
           Fabrics for<br /><span className="em">specialized</span> applications.
@@ -162,6 +126,22 @@ export function HomeHero() {
           <Stat value="2400" unit="N" label="Tear strength · MD" />
           <Stat value="25" unit="yr" label="UV-rated service life" />
           <Stat value="–40 / +80" unit="°C" label="Operating envelope" />
+        </div>
+        {/* Carousel dots */}
+        <div style={{ display: 'flex', gap: 8, marginTop: 24 }}>
+          {SLIDES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => go(i)}
+              aria-label={`View slide ${i + 1}`}
+              style={{
+                width: i === current ? 36 : 20, height: 2, borderRadius: 1, border: 'none',
+                background: i === current ? 'var(--accent)' : 'rgba(255,255,255,0.25)',
+                cursor: 'pointer', padding: 0,
+                transition: 'width 0.3s ease, background 0.3s ease',
+              }}
+            />
+          ))}
         </div>
       </div>
     </section>

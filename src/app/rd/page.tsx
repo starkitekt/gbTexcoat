@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { Section, PageHead, Eyebrow, Btn, Icon, ContactStrip, useReveal } from '@/components/ui';
+import { Section, PageHero, Eyebrow, Btn, Icon, ContactStrip, useReveal } from '@/components/ui';
 import { PRODUCT_LIST } from '@/lib/products';
 
 export default function RDPage() {
@@ -9,15 +9,23 @@ export default function RDPage() {
 
   return (
     <main ref={ref as any}>
-      <PageHead
-        title={<>Where materials get characterised, not assumed.</>}
-        subtitle="Our R&D arm operates inside the IIT Delhi Research & Innovation Park. Every coating chemistry is iterated against in-house and university-grade test infrastructure before it ships."
+      <PageHero
+        eyebrow="Research & Development"
+        title={<>Materials characterised here.<br /><span>Not</span> assumed elsewhere.</>}
+        subtitle="Our R&D arm operates inside the IIT Delhi Research & Innovation Park. Every coating chemistry iterates against in-house and university-grade test infrastructure before it ships."
         extra={
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Btn kind="primary" onClick={() => router.push('/contact')}>Co-develop with us</Btn>
             <Btn kind="ghost" onClick={() => router.push('/products')}>Product systems</Btn>
           </div>
         }
+        images={[
+          { src: 'https://images.unsplash.com/photo-qbabEE7b2Xk?w=1920&q=85&auto=format&fit=crop', alt: 'Lab glassware and chemistry research equipment' },
+          { src: 'https://images.unsplash.com/photo-NjPuuILb39g?w=1920&q=85&auto=format&fit=crop', alt: 'Researchers studying chemistry in laboratory' },
+          { src: 'https://images.unsplash.com/photo-UJHANmlaHwc?w=1920&q=85&auto=format&fit=crop', alt: 'Scientists working with test tubes and samples' },
+          { src: 'https://images.unsplash.com/photo-gxHT8JuIbgQ?w=1920&q=85&auto=format&fit=crop', alt: 'Scientist working with laboratory equipment' },
+          { src: 'https://images.unsplash.com/photo-2oUIA9P0usw?w=1920&q=85&auto=format&fit=crop', alt: 'Scientist examining sample through laboratory microscope' },
+        ]}
       />
 
       {/* NEW: What is our tech platform for? */}

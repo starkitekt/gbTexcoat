@@ -1,5 +1,5 @@
 'use client';
-import { ReactNode } from 'react';
+import { ReactNode, useState, useEffect } from 'react';
 import { useReveal } from '@/hooks/useReveal';
 import { Btn } from './Button';
 
@@ -38,6 +38,65 @@ export function PageHead({ title, subtitle, extra }: {
         <h1 className="page-title">{title}</h1>
         {subtitle && <p className="lead" style={{ marginTop: 28, maxWidth: '60ch' }}>{subtitle}</p>}
         {extra && <div style={{ marginTop: 36 }}>{extra}</div>}
+      </div>
+    </div>
+  );
+}
+
+type HeroImage = { src: string; alt: string };
+
+export function PageHero({
+  eyebrow,
+  title,
+  subtitle,
+  extra,
+  images,
+}: {
+  eyebrow?: string;
+  title: ReactNode;
+  subtitle?: string;
+  extra?: ReactNode;
+  images: HeroImage[];
+}) {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setCurrent(c => (c + 1) % images.length), 5000);
+    return () => clearInterval(id);
+  }, [images.length]);
+
+  return (
+    <div className="page-hero">
+      {images.map((img, i) => (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          key={img.src}
+          src={img.src}
+          alt={img.alt}
+          className="page-hero-img"
+          style={{ opacity: i === current ? 1 : 0, zIndex: i === current ? 1 : 0 }}
+        />
+      ))}
+      <div className="page-hero-grad" />
+      <div className="page-hero-content">
+        <div className="container">
+          {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+          <h1 className="page-hero-title">{title}</h1>
+          {subtitle && (
+            <p className="lead" style={{ maxWidth: '52ch', marginTop: 20 }}>{subtitle}</p>
+          )}
+          {extra && <div style={{ marginTop: 32 }}>{extra}</div>}
+          <div className="page-hero-dots">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                className={`page-hero-dot${i === current ? ' active' : ''}`}
+                onClick={() => setCurrent(i)}
+                aria-label={`View image ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

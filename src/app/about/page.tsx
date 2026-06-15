@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { Section, PageHead, Eyebrow, Btn, Icon, ContactStrip } from '@/components/ui';
+import { Section, PageHero, Eyebrow, Btn, Icon, ContactStrip } from '@/components/ui';
 import { useReveal } from '@/components/ui';
 
 const MILESTONES: Array<{ date: string; event: string; detail: string; img?: string }> = [
@@ -140,8 +140,9 @@ export default function AboutPage() {
 
   return (
     <main ref={ref as any}>
-      <PageHead
-        title={<>Engineering coated fabric for the<br />next industrial decade.</>}
+      <PageHero
+        eyebrow="Our story"
+        title={<>Fabric built for<br /><span>industrial</span> extremes.</>}
         subtitle="We manufacture advanced multifaceted textiles for mission-critical applications across aerospace, defence, and high-performance industrial systems."
         extra={
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
@@ -149,6 +150,13 @@ export default function AboutPage() {
             <Btn kind="ghost" onClick={() => router.push('/rd')}>Inside the lab</Btn>
           </div>
         }
+        images={[
+          { src: 'https://images.unsplash.com/photo-yVRkR4G46sc?w=1920&q=85&auto=format&fit=crop', alt: 'Workers in industrial textile manufacturing facility' },
+          { src: 'https://images.unsplash.com/photo-Kn2HI9oiNrw?w=1920&q=85&auto=format&fit=crop', alt: 'Worker at textile machine in factory' },
+          { src: 'https://images.unsplash.com/photo-aC4p_vtJxLc?w=1920&q=85&auto=format&fit=crop', alt: 'Industrial factory production floor' },
+          { src: 'https://images.unsplash.com/photo-xoxnfVIE7Qw?w=1920&q=85&auto=format&fit=crop', alt: 'Technical textile material close-up' },
+          { src: 'https://images.unsplash.com/photo-PDhHgBYuktw?w=1920&q=85&auto=format&fit=crop', alt: 'Precision manufacturing at industrial machine' },
+        ]}
       />
 
       {/* Mission */}

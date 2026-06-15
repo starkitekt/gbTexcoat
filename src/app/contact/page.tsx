@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { Section, Eyebrow, Btn, Icon, useReveal } from '@/components/ui';
+import { Section, PageHero, Eyebrow, Btn, Icon, useReveal } from '@/components/ui';
 
 export default function ContactPage() {
   const router = useRouter();
@@ -20,19 +20,12 @@ export default function ContactPage() {
 
   return (
     <main ref={ref as any}>
-      {/* Contact Hero */}
-      <div style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(80px,10vw,120px) 0 clamp(56px,7vw,80px)', borderBottom: '1px solid var(--line)' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 60% at 70% 30%, rgba(59,130,246,0.10), transparent 70%), linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 100%)' }} />
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(to right, rgba(148,163,184,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,184,0.05) 1px, transparent 1px)', backgroundSize: '64px 64px', maskImage: 'radial-gradient(ellipse at 70% 30%, black 30%, transparent 90%)' }} />
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <Eyebrow num="01">Get in touch</Eyebrow>
-          <h1 style={{ fontFamily: 'var(--f-display)', fontSize: 'clamp(44px,6vw,80px)', letterSpacing: '-0.03em', lineHeight: 1, margin: '20px 0 24px 0', maxWidth: '16ch', fontWeight: 500 }}>
-            Engineering consult.<br /><span style={{ color: 'var(--text-2)' }}>Within 24 hours.</span>
-          </h1>
-          <p className="lead" style={{ maxWidth: '52ch', marginBottom: 40, color: 'var(--text-1)' }}>
-            Tell us about the application, the load case and the environment. We respond with sample swatches, a test plan and a quote.
-          </p>
-          <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap', borderTop: '1px solid var(--line)', paddingTop: 32 }}>
+      <PageHero
+        eyebrow="Get in touch"
+        title={<>Engineering consult.<br /><span>Within</span> 24 hours.</>}
+        subtitle="Tell us about the application, the load case and the environment. We respond with sample swatches, a test plan and a quote."
+        extra={
+          <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap', borderTop: '1px solid rgba(148,163,184,0.2)', paddingTop: 28 }}>
             {[
               { icon: <Icon.clock />, k: 'Office hours', v: 'Mon to Fri, 10AM to 6PM IST' },
               { icon: <Icon.calendar />, k: 'Lab visits', v: '48 hr advance notice required' },
@@ -47,8 +40,15 @@ export default function ContactPage() {
               </div>
             ))}
           </div>
-        </div>
-      </div>
+        }
+        images={[
+          { src: 'https://images.unsplash.com/photo-Pytcgoy6Log?w=1920&q=85&auto=format&fit=crop', alt: 'Modern research institute building with columns' },
+          { src: 'https://images.unsplash.com/photo-4bp8TU5V3Ls?w=1920&q=85&auto=format&fit=crop', alt: 'Contemporary university campus architecture' },
+          { src: 'https://images.unsplash.com/photo-ryet7cqhtWE?w=1920&q=85&auto=format&fit=crop', alt: 'Aerial view of innovation campus buildings' },
+          { src: 'https://images.unsplash.com/photo-OT33uUulQRY?w=1920&q=85&auto=format&fit=crop', alt: 'Futuristic white research building exterior' },
+          { src: 'https://images.unsplash.com/photo-5WVQNmCY8mE?w=1920&q=85&auto=format&fit=crop', alt: 'Modern innovation building at dusk' },
+        ]}
+      />
 
       <Section>
         <div className="grid-2" style={{ gap: 56, alignItems: 'start' }}>
