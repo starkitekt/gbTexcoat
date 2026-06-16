@@ -1,14 +1,14 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Btn, Eyebrow, Icon, Stat } from '../ui';
+import { Btn, Eyebrow, Icon } from '../ui';
 
 const SLIDES = [
-  { src: '/hero/home/1.jpg', label: 'AEROSTAT · SPHERICAL PLATFORM', sub: 'GBT-LS · COATED ENVELOPE' },
-  { src: '/hero/home/2.jpg', label: 'AEROSTAT · DAWN OPERATIONS', sub: 'GBT-LS · LAMINATED HULL' },
-  { src: '/hero/home/3.jpg', label: 'LTA · HIGH-ALTITUDE SYSTEMS', sub: 'GBT-LS · ENVELOPE FABRIC' },
-  { src: '/hero/home/4.jpg', label: 'BALLOON · SURVEILLANCE FLEET', sub: 'GBT-FX · BARRIER MEMBRANE' },
-  { src: '/hero/home/5.jpg', label: 'AIRSHIP · HEAVY-LIFT HULL', sub: 'GBT-LS · COATED FABRIC' },
+  { src: '/hero/home/1.webp', label: 'AEROSTAT · SPHERICAL PLATFORM', sub: 'GBT-LS · COATED ENVELOPE' },
+  { src: '/hero/home/2.webp', label: 'AEROSTAT · DAWN OPERATIONS', sub: 'GBT-LS · LAMINATED HULL' },
+  { src: '/hero/home/3.webp', label: 'LTA · HIGH-ALTITUDE SYSTEMS', sub: 'GBT-LS · ENVELOPE FABRIC' },
+  { src: '/hero/home/4.webp', label: 'BALLOON · SURVEILLANCE FLEET', sub: 'GBT-FX · BARRIER MEMBRANE' },
+  { src: '/hero/home/5.webp', label: 'AIRSHIP · HEAVY-LIFT HULL', sub: 'GBT-LS · COATED FABRIC' },
 ];
 
 const INTERVAL = 5000;
@@ -16,21 +16,25 @@ const INTERVAL = 5000;
 export function HomeHero() {
   const router = useRouter();
   const [current, setCurrent] = useState(0);
+  const [warm, setWarm] = useState(false);
 
   useEffect(() => {
+    setWarm(true);
     const id = setInterval(() => setCurrent(c => (c + 1) % SLIDES.length), INTERVAL);
     return () => clearInterval(id);
   }, []);
 
   return (
     <section className="hero">
-      {/* Full-bleed image carousel */}
+      {/* Full-bleed carousel — first slide eager, rest deferred to after mount for fast first paint */}
       {SLIDES.map((slide, i) => (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           key={slide.src}
-          src={slide.src}
+          src={i === 0 || warm ? slide.src : undefined}
           alt=""
+          loading={i === 0 ? 'eager' : 'lazy'}
+          decoding="async"
           style={{
             position: 'absolute', inset: 0, width: '100%', height: '100%',
             objectFit: 'cover',
@@ -42,14 +46,8 @@ export function HomeHero() {
         />
       ))}
 
-      {/* Left-to-right gradient overlay */}
-      <div style={{
-        position: 'absolute', inset: 0, zIndex: 2,
-        background: [
-          'linear-gradient(to right, rgba(6,9,15,1) 0%, rgba(6,9,15,0.97) 12%, rgba(6,9,15,0.88) 22%, rgba(6,9,15,0.65) 32%, rgba(6,9,15,0.20) 40%, rgba(6,9,15,0) 52%)',
-          'linear-gradient(180deg, rgba(6,9,15,0.4) 0%, transparent 30%, transparent 65%, rgba(6,9,15,0.7) 100%)',
-        ].join(', '),
-      }} />
+      {/* Left-to-right gradient overlay (turns white in light mode via CSS) */}
+      <div className="page-hero-grad" />
 
       {/* Subtle grid texture */}
       <div style={{
@@ -97,12 +95,6 @@ export function HomeHero() {
           <Btn kind="ghost" arrow={false} onClick={() => router.push('/rd')}>
             <Icon.play /> Inside the lab
           </Btn>
-        </div>
-        <div className="hero-meta">
-          <Stat value="450" unit="gsm" label="Base areal weight" />
-          <Stat value="2400" unit="N" label="Tear strength · MD" />
-          <Stat value="25" unit="yr" label="UV-rated service life" />
-          <Stat value="–40 / +80" unit="°C" label="Operating envelope" />
         </div>
       </div>
     </section>

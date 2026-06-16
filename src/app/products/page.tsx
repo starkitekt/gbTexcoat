@@ -18,11 +18,11 @@ export default function ProductsPage() {
           </div>
         }
         images={[
-          { src: '/hero/products/1.jpg', alt: 'Close-up of technical woven fabric material' },
-          { src: '/hero/products/2.jpg', alt: 'Woven fabric texture detail' },
-          { src: '/hero/products/3.jpg', alt: 'Coarse technical cloth texture close-up' },
-          { src: '/hero/products/4.jpg', alt: 'Gray knitted fabric surface texture' },
-          { src: '/hero/products/5.jpg', alt: 'Industrial woven fabric weave pattern' },
+          { src: '/hero/products/1.webp', alt: 'Close-up of technical woven fabric material' },
+          { src: '/hero/products/2.webp', alt: 'Woven fabric texture detail' },
+          { src: '/hero/products/3.webp', alt: 'Coarse technical cloth texture close-up' },
+          { src: '/hero/products/4.webp', alt: 'Gray knitted fabric surface texture' },
+          { src: '/hero/products/5.webp', alt: 'Industrial woven fabric weave pattern' },
         ]}
       />
 

@@ -24,31 +24,31 @@ export default function ContactPage() {
         eyebrow="Get in touch"
         title={<>Engineering consult.<br />Delivered <span>within</span><br />24 hours.</>}
         subtitle="Tell us about the application, the load case and the operating environment. We respond with sample swatches, a documented test plan and a detailed quote."
-        extra={
-          <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap', borderTop: '1px solid rgba(148,163,184,0.2)', paddingTop: 28 }}>
-            {[
-              { icon: <Icon.clock />, k: 'Office hours', v: 'Mon to Fri, 10AM to 6PM IST' },
-              { icon: <Icon.calendar />, k: 'Lab visits', v: '48 hr advance notice required' },
-              { icon: <Icon.timer />, k: 'Sample turnaround', v: '7 to 10 working days' },
-            ].map(f => (
-              <div key={f.k} style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                <div style={{ width: 36, height: 36, borderRadius: 8, background: 'var(--accent-soft)', display: 'grid', placeItems: 'center', color: 'var(--accent)', flexShrink: 0 }}>{f.icon}</div>
-                <div>
-                  <div style={{ fontFamily: 'var(--f-mono)', fontSize: 9.5, color: 'var(--text-3)', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 3 }}>{f.k}</div>
-                  <div style={{ fontFamily: 'var(--f-display)', fontSize: 14, letterSpacing: '-0.01em' }}>{f.v}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        }
         images={[
-          { src: '/hero/contact/1.jpg', alt: 'Modern research institute building with columns' },
-          { src: '/hero/contact/2.jpg', alt: 'Contemporary university campus architecture' },
-          { src: '/hero/contact/3.jpg', alt: 'Aerial view of innovation campus buildings' },
-          { src: '/hero/contact/4.jpg', alt: 'Futuristic white research building exterior' },
-          { src: '/hero/contact/5.jpg', alt: 'Modern innovation building at dusk' },
+          { src: '/hero/contact/1.webp', alt: 'Modern research institute building with columns' },
+          { src: '/hero/contact/2.webp', alt: 'Contemporary university campus architecture' },
+          { src: '/hero/contact/3.webp', alt: 'Aerial view of innovation campus buildings' },
+          { src: '/hero/contact/4.webp', alt: 'Futuristic white research building exterior' },
+          { src: '/hero/contact/5.webp', alt: 'Modern innovation building at dusk' },
         ]}
       />
+
+      <Section tight>
+        <h2 className="h-display h3" style={{ margin: '0 0 32px 0', maxWidth: '22ch' }}>What to expect when you get in touch.</h2>
+        <div className="grid-3">
+          {[
+            { icon: <Icon.clock />, k: 'Office hours', v: 'Monday to Friday, 10:00–18:00 IST. Engineering is on hand for technical and specification calls.' },
+            { icon: <Icon.calendar />, k: 'Lab visits', v: 'Walkthroughs of our facility at the IIT Delhi R&I Park by appointment — please allow 48 hours for site access.' },
+            { icon: <Icon.timer />, k: 'Sample turnaround', v: 'Swatches, a spec sheet and a documented test plan dispatched within 7 to 10 working days of your brief.' },
+          ].map(f => (
+            <div key={f.k} className="card pad reveal" style={{ padding: 28 }}>
+              <div style={{ width: 40, height: 40, borderRadius: 8, background: 'var(--accent-soft)', display: 'grid', placeItems: 'center', color: 'var(--accent)', marginBottom: 18 }}>{f.icon}</div>
+              <div style={{ fontFamily: 'var(--f-display)', fontSize: 19, fontWeight: 500, letterSpacing: '-0.01em', marginBottom: 8 }}>{f.k}</div>
+              <p style={{ color: 'var(--text-2)', margin: 0, fontSize: 14, lineHeight: 1.6 }}>{f.v}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       <Section>
         <div className="grid-2" style={{ gap: 56, alignItems: 'start' }}>

@@ -151,11 +151,11 @@ export default function AboutPage() {
           </div>
         }
         images={[
-          { src: '/hero/about/1.jpg', alt: 'Workers in industrial textile manufacturing facility' },
-          { src: '/hero/about/2.jpg', alt: 'Worker at textile machine in factory' },
-          { src: '/hero/about/3.jpg', alt: 'Industrial factory production floor' },
-          { src: '/hero/about/4.jpg', alt: 'Technical textile material close-up' },
-          { src: '/hero/about/5.jpg', alt: 'Textile finishing line on a manufacturing floor' },
+          { src: '/hero/about/1.webp', alt: 'Workers in industrial textile manufacturing facility' },
+          { src: '/hero/about/2.webp', alt: 'Worker at textile machine in factory' },
+          { src: '/hero/about/3.webp', alt: 'Industrial factory production floor' },
+          { src: '/hero/about/4.webp', alt: 'Technical textile material close-up' },
+          { src: '/hero/about/5.webp', alt: 'Textile finishing line on a manufacturing floor' },
         ]}
       />
 

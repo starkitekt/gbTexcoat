@@ -20,11 +20,11 @@ export default function RDPage() {
           </div>
         }
         images={[
-          { src: '/hero/rd/1.jpg', alt: 'Researcher pipetting samples into test tubes' },
-          { src: '/hero/rd/2.jpg', alt: 'Row of microscopes on a laboratory bench' },
-          { src: '/hero/rd/3.jpg', alt: 'Scientists working with test tubes and samples' },
-          { src: '/hero/rd/4.jpg', alt: 'Scientist working with laboratory equipment' },
-          { src: '/hero/rd/5.jpg', alt: 'Researcher operating instruments in a chemistry lab' },
+          { src: '/hero/rd/1.webp', alt: 'Researcher pipetting samples into test tubes' },
+          { src: '/hero/rd/2.webp', alt: 'Row of microscopes on a laboratory bench' },
+          { src: '/hero/rd/3.webp', alt: 'Scientists working with test tubes and samples' },
+          { src: '/hero/rd/4.webp', alt: 'Scientist working with laboratory equipment' },
+          { src: '/hero/rd/5.webp', alt: 'Researcher operating instruments in a chemistry lab' },
         ]}
       />
 

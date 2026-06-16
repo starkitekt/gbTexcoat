@@ -59,8 +59,10 @@ export function PageHero({
   images: HeroImage[];
 }) {
   const [current, setCurrent] = useState(0);
+  const [warm, setWarm] = useState(false);
 
   useEffect(() => {
+    setWarm(true);
     const id = setInterval(() => setCurrent(c => (c + 1) % images.length), 5000);
     return () => clearInterval(id);
   }, [images.length]);
@@ -71,9 +73,11 @@ export function PageHero({
         // eslint-disable-next-line @next/next/no-img-element
         <img
           key={img.src}
-          src={img.src}
+          src={i === 0 || warm ? img.src : undefined}
           alt={img.alt}
           className="page-hero-img"
+          loading={i === 0 ? 'eager' : 'lazy'}
+          decoding="async"
           style={{ opacity: i === current ? 1 : 0, zIndex: i === current ? 1 : 0 }}
         />
       ))}
