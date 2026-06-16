@@ -33,7 +33,7 @@ export function IndustriesSection() {
           <Eyebrow num="02">Industries we serve</Eyebrow>
           <h2 className="h-display h2" style={{ margin: '20px 0 0 0', maxWidth: '14ch' }}>One material platform. <span style={{ color: 'var(--text-2)' }}>Six demanding domains.</span></h2>
         </div>
-        <p className="lead reveal delay-2" style={{ maxWidth: '38ch' }}>Our coating chemistry is engineered for conditions where conventional textiles fail — sustained altitude, intense UV, structural load and prolonged fuel contact.</p>
+        <p className="lead reveal delay-2" style={{ maxWidth: '38ch' }}>Our coating chemistry is engineered for conditions where conventional textiles fail: sustained altitude, intense UV, structural load and prolonged fuel contact.</p>
       </div>
       <div>
         {items.map(it => (
@@ -240,7 +240,7 @@ export function WhyTexcoat() {
         <div className="reveal" style={{ position: 'sticky', top: 100 }}>
           <Eyebrow num="07">Why GB Texcoat</Eyebrow>
           <h2 className="h-display h2" style={{ margin: '20px 0 24px 0' }}>A material partner, <span style={{ color: 'var(--text-2)' }}>not a textile vendor.</span></h2>
-          <p className="lead">Engineering teams choose GB Texcoat because we treat coated fabric as a system — substrate, coating, weave and seam, engineered together and documented at every variable.</p>
+          <p className="lead">Engineering teams choose GB Texcoat because we treat coated fabric as a system: substrate, coating, weave and seam, engineered together and documented at every variable.</p>
         </div>
         <div>
           {reasons.map((r, i) => (

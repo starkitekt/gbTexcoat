@@ -1,7 +1,7 @@
 'use client';
 import { Section, Stat } from '../ui';
 
-/** Key material specs — moved out of the hero into its own band below it. */
+/** Key material specs: moved out of the hero into its own band below it. */
 export function HeroStats() {
   return (
     <Section tight>

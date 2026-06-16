@@ -143,7 +143,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="Our story"
         title={<>A materials company<br />built for <span>strategic</span><br />supply.</>}
-        subtitle="We manufacture advanced coated textiles for mission-critical work across aerospace, defence and high-performance industry — engineered, characterised and certified in-house before a single metre ships."
+        subtitle="We manufacture advanced coated textiles for mission-critical work across aerospace, defence and high-performance industry. Each is engineered, characterised and certified in-house before a single metre ships."
         extra={
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Btn kind="primary" onClick={() => router.push('/products')}>Product systems</Btn>

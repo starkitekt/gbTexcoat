@@ -10,7 +10,7 @@ export default function ProductsPage() {
       <PageHero
         eyebrow="Product catalogue"
         title={<>Four material systems.<br />One engineering<br /><span>discipline</span>.</>}
-        subtitle="Each family answers a distinct failure mode — weight, weathering, tear or fluid containment — and ships with the documentation strategic procurement requires."
+        subtitle="Each family answers a distinct failure mode (weight, weathering, tear or fluid containment) and ships with the documentation strategic procurement requires."
         extra={
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Btn kind="primary" onClick={() => router.push('/contact')}>Request a spec sheet</Btn>
@@ -42,7 +42,7 @@ export default function ProductsPage() {
           <div className="reveal">
             <Eyebrow num="04">Need something non-standard?</Eyebrow>
             <h2 className="h-display h2" style={{ margin: '20px 0 20px 0' }}>Custom <span style={{ color: 'var(--accent)' }}>formulation</span> programs.</h2>
-            <p className="lead" style={{ marginBottom: 24 }}>Many engineering teams arrive with a specification no catalogue answers. We run paid characterisation cycles with shared data and full documentation — typically six to fourteen weeks.</p>
+            <p className="lead" style={{ marginBottom: 24 }}>Many engineering teams arrive with a specification no catalogue answers. We run paid characterisation cycles with shared data and full documentation, typically six to fourteen weeks.</p>
             <Btn kind="primary" onClick={() => router.push('/contact')}>Start a custom program</Btn>
           </div>
           <div className="reveal delay-2">

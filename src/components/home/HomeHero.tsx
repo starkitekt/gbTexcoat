@@ -26,7 +26,7 @@ export function HomeHero() {
 
   return (
     <section className="hero">
-      {/* Full-bleed carousel — first slide eager, rest deferred to after mount for fast first paint */}
+      {/* Full-bleed carousel: first slide eager, rest deferred to after mount for fast first paint */}
       {SLIDES.map((slide, i) => (
         // eslint-disable-next-line @next/next/no-img-element
         <img
@@ -59,28 +59,6 @@ export function HomeHero() {
         pointerEvents: 'none',
       }} />
 
-      {/* HUD overlays */}
-      <div className="hud hud-tl" style={{ zIndex: 5 }}>
-        <div className="line">SECTOR · AEROSPACE &amp; DEFENSE</div>
-        <div className="line">FACILITY · IIT-D R&amp;I PARK</div>
-        <div className="line">STATUS · <span className="v">OPERATIONAL</span></div>
-      </div>
-      <div className="hud hud-tr" style={{ zIndex: 5 }}>
-        <div className="line">N 28°32&apos;42&quot; · E 77°11&apos;33&quot;</div>
-        <div className="line">REL <span className="v">26.05.01</span></div>
-        <div className="line"><span className="v">SCROLL ↓</span></div>
-      </div>
-
-      {/* Slide label — bottom right */}
-      <div style={{
-        position: 'absolute', bottom: 24, right: 24, zIndex: 5,
-        fontFamily: 'var(--f-mono)', fontSize: 10, letterSpacing: '0.12em',
-        textTransform: 'uppercase', textAlign: 'right', pointerEvents: 'none',
-      }}>
-        <div style={{ color: 'var(--cyan)' }}>{SLIDES[current].label}</div>
-        <div style={{ color: 'var(--text-3)', marginTop: 2 }}>{SLIDES[current].sub}</div>
-      </div>
-
       {/* Content */}
       <div className="container hero-content" style={{ position: 'relative', zIndex: 5 }}>
         <Eyebrow num="GBT · EST. 2024">Crafting Excellence</Eyebrow>
@@ -88,7 +66,7 @@ export function HomeHero() {
           Coated textiles for<br />the world&apos;s most<br /><span>demanding</span> platforms.
         </h1>
         <p className="page-hero-lead">
-          GB Texcoat engineers coated and laminated fabrics for aerospace, defence and industrial systems where material failure is not an option — built to tender-grade specification and validated against international standards.
+          GB Texcoat engineers coated and laminated fabrics for aerospace, defence and industrial systems where material failure is not an option. Built to tender-grade specification and validated against international standards.
         </p>
         <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
           <Btn kind="primary" onClick={() => router.push('/products')}>Explore engineered systems</Btn>

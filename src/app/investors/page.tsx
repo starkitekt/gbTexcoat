@@ -11,7 +11,7 @@ export default function InvestorsPage() {
       <PageHero
         eyebrow="Investors"
         title={<>Indigenous supply for<br />a <span>strategic</span><br />material.</>}
-        subtitle="GB Texcoat is building a vertically integrated coated-fabric manufacturer for India's aerospace, defence and industrial supply chain — and the export markets adjacent to it."
+        subtitle="GB Texcoat is building a vertically integrated coated-fabric manufacturer for India's aerospace, defence and industrial supply chain, and the export markets adjacent to it."
         extra={
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Btn kind="primary" onClick={() => router.push('/contact')}>Request investor brief</Btn>
@@ -58,7 +58,7 @@ export default function InvestorsPage() {
               { t: 'The category is structurally import-dependent', d: 'India consumes coated fabric for aerostats, defence inflatables, tensile architecture and fuel storage, but ~70% of high-performance demand is imported. Strategic sectors increasingly require indigenous supply.' },
               { t: 'R&D moat lives inside IIT Delhi', d: 'Co-location with university polymer, materials and aerospace labs lets us iterate coating chemistries faster than catalogue manufacturers. Test infrastructure that would cost $5–8M to recreate is across the corridor.' },
               { t: 'Tender-grade documentation as differentiator', d: 'Most domestic players cannot supply test certificates against MIL-STD, STANAG and ASTM specifications. We can, and that unlocks aerospace and defence tenders that are otherwise foreclosed.' },
-              { t: 'Four-family product platform, not single-SKU', d: 'Lightweight hull material, UV-stable membrane, structural tensile and fuel storage families share substrate and coating IP — capex amortises across SKUs.' },
+              { t: 'Four-family product platform, not single-SKU', d: 'Lightweight hull material, UV-stable membrane, structural tensile and fuel storage families share substrate and coating IP, so capex amortises across SKUs.' },
             ].map((r, i) => (
               <div key={i} className={`reveal delay-${i + 1}`} style={{ padding: '28px 0', borderBottom: i === 3 ? 'none' : '1px solid var(--line)', display: 'grid', gridTemplateColumns: '40px 1fr', gap: 24 }}>
                 <div className="mono" style={{ fontSize: 12, color: 'var(--accent)', letterSpacing: '0.16em' }}>0{i + 1}</div>
@@ -105,8 +105,8 @@ export default function InvestorsPage() {
         <div className="grid-4">
           {[
             { p: '40%', t: 'Production scale-up', d: 'Knife-coating, laminating and RF welding capacity expansion at the IIT-D facility.' },
-            { p: '25%', t: 'Certification', d: 'Tender-grade compliance documentation — MIL-STD, STANAG, ASTM, ISO.' },
-            { p: '20%', t: 'R&D platform', d: 'Additional test rigs and new chemistry programs — fluoropolymer barrier, aramid weave.' },
+            { p: '25%', t: 'Certification', d: 'Tender-grade compliance documentation: MIL-STD, STANAG, ASTM, ISO.' },
+            { p: '20%', t: 'R&D platform', d: 'Additional test rigs and new chemistry programs: fluoropolymer barrier, aramid weave.' },
             { p: '15%', t: 'Go-to-market', d: 'Engineering sales for aerospace, defence and architectural channels.' },
           ].map((u, i) => (
             <div key={u.t} className={`card pad reveal delay-${i + 1}`}>

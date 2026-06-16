@@ -23,7 +23,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Get in touch"
         title={<>Engineering consultation.<br />Answered <span>within</span><br />24 hours.</>}
-        subtitle="Share the application, the load case and the operating environment. You receive sample swatches, a documented test plan and a quotation — typically within one working day."
+        subtitle="Share the application, the load case and the operating environment. You receive sample swatches, a documented test plan and a quotation, typically within one working day."
         images={[
           { src: '/hero/contact/1.webp', alt: 'Modern research institute building with columns' },
           { src: '/hero/contact/2.webp', alt: 'Contemporary university campus architecture' },
@@ -38,7 +38,7 @@ export default function ContactPage() {
         <div className="grid-3">
           {[
             { icon: <Icon.clock />, k: 'Office hours', v: 'Monday to Friday, 10:00–18:00 IST. Engineering is on hand for technical and specification calls.' },
-            { icon: <Icon.calendar />, k: 'Lab visits', v: 'Walkthroughs of our facility at the IIT Delhi R&I Park by appointment — please allow 48 hours for site access.' },
+            { icon: <Icon.calendar />, k: 'Lab visits', v: 'Walkthroughs of our facility at the IIT Delhi R&I Park by appointment; please allow 48 hours for site access.' },
             { icon: <Icon.timer />, k: 'Sample turnaround', v: 'Swatches, a spec sheet and a documented test plan dispatched within 7 to 10 working days of your brief.' },
           ].map(f => (
             <div key={f.k} className="card pad reveal" style={{ padding: 28 }}>

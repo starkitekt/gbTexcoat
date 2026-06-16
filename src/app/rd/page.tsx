@@ -34,7 +34,7 @@ export default function RDPage() {
           <div className="reveal">
             <Eyebrow num="01">Technology platform</Eyebrow>
             <h2 className="h-display h2" style={{ margin: '20px 0 24px 0' }}>What is our <span style={{ color: 'var(--accent)' }}>technology platform</span> for?</h2>
-            <p className="lead" style={{ marginBottom: 20 }}>We engineer advanced coating and lamination systems for extreme-environment applications — where conventional textiles degrade, fail or cannot perform at all.</p>
+            <p className="lead" style={{ marginBottom: 20 }}>We engineer advanced coating and lamination systems for extreme-environment applications, where conventional textiles degrade, fail or cannot perform at all.</p>
             <p style={{ color: 'var(--text-2)' }}>Our platform targets Lighter-Than-Air systems (aerostats, airships, tethered balloons), inflatable structures, tensile architecture, and fuel containment, applications that demand multifunctional material properties operating under sustained stress.</p>
           </div>
           <div className="reveal delay-2">
