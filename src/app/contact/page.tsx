@@ -22,8 +22,8 @@ export default function ContactPage() {
     <main ref={ref as any}>
       <PageHero
         eyebrow="Get in touch"
-        title={<>Engineering consult.<br />Delivered <span>within</span><br />24 hours.</>}
-        subtitle="Tell us about the application, the load case and the operating environment. We respond with sample swatches, a documented test plan and a detailed quote."
+        title={<>Engineering consultation.<br />Answered <span>within</span><br />24 hours.</>}
+        subtitle="Share the application, the load case and the operating environment. You receive sample swatches, a documented test plan and a quotation — typically within one working day."
         images={[
           { src: '/hero/contact/1.webp', alt: 'Modern research institute building with columns' },
           { src: '/hero/contact/2.webp', alt: 'Contemporary university campus architecture' },

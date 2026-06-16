@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { Section, PageHead, Eyebrow, Btn, useReveal } from '@/components/ui';
+import { Section, PageHero, Eyebrow, Btn, useReveal } from '@/components/ui';
 
 export default function InvestorsPage() {
   const router = useRouter();
@@ -8,15 +8,23 @@ export default function InvestorsPage() {
 
   return (
     <main ref={ref as any}>
-      <PageHead
-        title={<>The coated-fabric market is a $28B engineering problem.</>}
-        subtitle="GB Texcoat is building a vertically-integrated coated-fabric manufacturer for India's aerospace, defence and industrial supply chain — and for the export markets adjacent to it."
+      <PageHero
+        eyebrow="Investors"
+        title={<>Indigenous supply for<br />a <span>strategic</span><br />material.</>}
+        subtitle="GB Texcoat is building a vertically integrated coated-fabric manufacturer for India's aerospace, defence and industrial supply chain — and the export markets adjacent to it."
         extra={
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Btn kind="primary" onClick={() => router.push('/contact')}>Request investor brief</Btn>
             <Btn kind="ghost" arrow={false}>Download deck (PDF)</Btn>
           </div>
         }
+        images={[
+          { src: '/hero/investors/1.webp', alt: 'Satellite platform above Earth' },
+          { src: '/hero/investors/2.webp', alt: 'Satellite in orbit over Earth' },
+          { src: '/hero/investors/3.webp', alt: 'Spacecraft deploying above Earth' },
+          { src: '/hero/investors/4.webp', alt: 'High-volume warp threads on a textile production line' },
+          { src: '/hero/investors/5.webp', alt: 'Industrial textile manufacturing machinery' },
+        ]}
       />
 
       {/* Market stats */}
@@ -42,7 +50,7 @@ export default function InvestorsPage() {
           <div className="reveal" style={{ position: 'sticky', top: 100 }}>
             <Eyebrow num="01">Investment thesis</Eyebrow>
             <h2 className="h-display h2" style={{ margin: '20px 0 0 0', maxWidth: '14ch' }}>
-              Indigenous supply for a <span>strategic material.</span>
+              The case for building <span>this now.</span>
             </h2>
           </div>
           <div>

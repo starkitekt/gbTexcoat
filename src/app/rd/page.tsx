@@ -11,8 +11,8 @@ export default function RDPage() {
     <main ref={ref as any}>
       <PageHero
         eyebrow="Research & Development"
-        title={<>Materials characterised<br />here. <span>Not</span><br />assumed elsewhere.</>}
-        subtitle="Our R&D arm operates inside the IIT Delhi Research & Innovation Park. Every coating chemistry iterates against in-house and university-grade test infrastructure before it ships."
+        title={<>Characterised here.<br />Never <span>assumed</span><br />elsewhere.</>}
+        subtitle="Our research operates inside the IIT Delhi Research & Innovation Park, where every coating chemistry is validated against university-grade and in-house test infrastructure before it earns a specification."
         extra={
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Btn kind="primary" onClick={() => router.push('/contact')}>Co-develop with us</Btn>
@@ -34,7 +34,7 @@ export default function RDPage() {
           <div className="reveal">
             <Eyebrow num="01">Technology platform</Eyebrow>
             <h2 className="h-display h2" style={{ margin: '20px 0 24px 0' }}>What is our <span style={{ color: 'var(--accent)' }}>technology platform</span> for?</h2>
-            <p className="lead" style={{ marginBottom: 20 }}>We engineer advanced coating and lamination systems for extreme-environment applications, where conventional textiles degrade, fail, or simply cannot perform.</p>
+            <p className="lead" style={{ marginBottom: 20 }}>We engineer advanced coating and lamination systems for extreme-environment applications — where conventional textiles degrade, fail or cannot perform at all.</p>
             <p style={{ color: 'var(--text-2)' }}>Our platform targets Lighter-Than-Air systems (aerostats, airships, tethered balloons), inflatable structures, tensile architecture, and fuel containment, applications that demand multifunctional material properties operating under sustained stress.</p>
           </div>
           <div className="reveal delay-2">

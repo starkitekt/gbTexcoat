@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 import { Btn, Eyebrow, Icon } from '../ui';
 
 const SLIDES = [
-  { src: '/hero/home/1.webp', label: 'AEROSTAT · SPHERICAL PLATFORM', sub: 'GBT-LS · COATED ENVELOPE' },
-  { src: '/hero/home/2.webp', label: 'AEROSTAT · DAWN OPERATIONS', sub: 'GBT-LS · LAMINATED HULL' },
-  { src: '/hero/home/3.webp', label: 'LTA · HIGH-ALTITUDE SYSTEMS', sub: 'GBT-LS · ENVELOPE FABRIC' },
-  { src: '/hero/home/4.webp', label: 'BALLOON · SURVEILLANCE FLEET', sub: 'GBT-FX · BARRIER MEMBRANE' },
-  { src: '/hero/home/5.webp', label: 'AIRSHIP · HEAVY-LIFT HULL', sub: 'GBT-LS · COATED FABRIC' },
+  { src: '/hero/home/1.webp', label: 'AIRSHIP · COATED ENVELOPE', sub: 'GBT-LS · LAMINATED HULL' },
+  { src: '/hero/home/2.webp', label: 'AEROSTAT · PERSISTENT PLATFORM', sub: 'GBT-LS · COATED FABRIC' },
+  { src: '/hero/home/3.webp', label: 'STRATOSPHERIC BALLOON · LAUNCH', sub: 'GBT-LS · ENVELOPE FABRIC' },
+  { src: '/hero/home/4.webp', label: 'NEAR-SPACE · ORBITAL PLATFORM', sub: 'GBT · ADVANCED MEMBRANE' },
+  { src: '/hero/home/5.webp', label: 'SATELLITE · DEPLOYMENT SYSTEM', sub: 'GBT · BARRIER LAMINATE' },
 ];
 
 const INTERVAL = 5000;
@@ -85,10 +85,10 @@ export function HomeHero() {
       <div className="container hero-content" style={{ position: 'relative', zIndex: 5 }}>
         <Eyebrow num="GBT · EST. 2024">Crafting Excellence</Eyebrow>
         <h1 className="page-hero-title">
-          Engineered fabrics<br />for <span>specialized</span><br />applications.
+          Coated textiles for<br />the world&apos;s most<br /><span>demanding</span> platforms.
         </h1>
         <p className="page-hero-lead">
-          Advanced multifaceted textiles for mission-critical work — aerostats, airships, tethered platforms, portable fuel systems and tensile architecture. Built to perform precisely where conventional textiles fail.
+          GB Texcoat engineers coated and laminated fabrics for aerospace, defence and industrial systems where material failure is not an option — built to tender-grade specification and validated against international standards.
         </p>
         <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
           <Btn kind="primary" onClick={() => router.push('/products')}>Explore engineered systems</Btn>

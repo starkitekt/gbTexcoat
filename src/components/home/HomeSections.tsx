@@ -33,7 +33,7 @@ export function IndustriesSection() {
           <Eyebrow num="02">Industries we serve</Eyebrow>
           <h2 className="h-display h2" style={{ margin: '20px 0 0 0', maxWidth: '14ch' }}>One material platform. <span style={{ color: 'var(--text-2)' }}>Six demanding domains.</span></h2>
         </div>
-        <p className="lead reveal delay-2" style={{ maxWidth: '38ch' }}>Our coated fabric chemistry is engineered to perform where regular textiles fail: high altitude, harsh UV, structural loads, and prolonged fuel contact.</p>
+        <p className="lead reveal delay-2" style={{ maxWidth: '38ch' }}>Our coating chemistry is engineered for conditions where conventional textiles fail — sustained altitude, intense UV, structural load and prolonged fuel contact.</p>
       </div>
       <div>
         {items.map(it => (
@@ -62,7 +62,7 @@ export function EngineeringSolutions() {
     <Section id="solutions" className="bg-grid-fine" style={{ background: 'var(--bg-0)' }}>
       <div style={{ marginBottom: 56 }} className="reveal">
         <Eyebrow num="03">Engineering solutions</Eyebrow>
-        <h2 className="h-display h2" style={{ margin: '20px 0 0 0', maxWidth: '20ch' }}>The fabric is just the substrate. The <span style={{ color: 'var(--accent)' }}>engineering</span> is what we sell.</h2>
+        <h2 className="h-display h2" style={{ margin: '20px 0 0 0', maxWidth: '20ch' }}>The fabric is the substrate. The <span style={{ color: 'var(--accent)' }}>engineering</span> is the product.</h2>
       </div>
       <div className="grid-3">
         {cards.map((c, i) => {
@@ -206,7 +206,7 @@ export function ApplicationShowcase() {
     <Section id="applications" style={{ background: 'var(--bg-0)' }}>
       <div style={{ marginBottom: 56 }} className="reveal">
         <Eyebrow num="06">Field applications</Eyebrow>
-        <h2 className="h-display h2" style={{ margin: '20px 0 0 0' }}>Where the material<br /><span>actually goes.</span></h2>
+        <h2 className="h-display h2" style={{ margin: '20px 0 0 0' }}>Where the material<br /><span>is deployed.</span></h2>
       </div>
       <div className="grid-3">
         {apps.map((a, i) => (
@@ -240,7 +240,7 @@ export function WhyTexcoat() {
         <div className="reveal" style={{ position: 'sticky', top: 100 }}>
           <Eyebrow num="07">Why GB Texcoat</Eyebrow>
           <h2 className="h-display h2" style={{ margin: '20px 0 24px 0' }}>A material partner, <span style={{ color: 'var(--text-2)' }}>not a textile vendor.</span></h2>
-          <p className="lead">Engineering teams choose us because we treat coated fabric as a system: substrate, coating, weave and seam together. We document every variable.</p>
+          <p className="lead">Engineering teams choose GB Texcoat because we treat coated fabric as a system — substrate, coating, weave and seam, engineered together and documented at every variable.</p>
         </div>
         <div>
           {reasons.map((r, i) => (
@@ -308,7 +308,7 @@ export function ContactCTA() {
         <div className="between" style={{ flexWrap: 'wrap', gap: 32, position: 'relative' }}>
           <div>
             <Eyebrow num="09">Get in touch</Eyebrow>
-            <h2 className="h-display h2" style={{ margin: '20px 0 0 0', maxWidth: '14ch' }}>Have a hard material problem?<br /><span style={{ color: 'var(--text-2)' }}>Bring it to us.</span></h2>
+            <h2 className="h-display h2" style={{ margin: '20px 0 0 0', maxWidth: '16ch' }}>A demanding material requirement?<br /><span style={{ color: 'var(--text-2)' }}>Bring it to engineering.</span></h2>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16, alignItems: 'flex-end' }}>
             <Btn kind="primary" onClick={() => router.push('/contact')}>Book engineering consult</Btn>
