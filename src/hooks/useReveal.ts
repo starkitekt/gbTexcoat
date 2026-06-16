@@ -8,14 +8,24 @@ export function useReveal() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    const targets = [
+      ...el.querySelectorAll(REVEAL_SELECTORS),
+      ...(el.matches(REVEAL_SELECTORS) ? [el] : []),
+    ];
+
+    // Reduced motion: reveal everything immediately, skip the scroll animation.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      targets.forEach(n => n.classList.add('in'));
+      return;
+    }
+
+    // Toggle (not add-once) and keep observing, so reveals replay whether the
+    // user scrolls down into an element OR back up into it.
     const io = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      }),
+      (entries) => entries.forEach(e => e.target.classList.toggle('in', e.isIntersecting)),
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
     );
-    el.querySelectorAll(REVEAL_SELECTORS).forEach(n => io.observe(n));
-    if (el.matches(REVEAL_SELECTORS)) io.observe(el);
+    targets.forEach(n => io.observe(n));
     return () => io.disconnect();
   }, []);
   return ref;
