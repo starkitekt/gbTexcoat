@@ -82,20 +82,8 @@ export function PageHero({
         <div className="container">
           {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
           <h1 className="page-hero-title">{title}</h1>
-          {subtitle && (
-            <p className="lead" style={{ maxWidth: '52ch', marginTop: 20 }}>{subtitle}</p>
-          )}
+          {subtitle && <p className="page-hero-lead">{subtitle}</p>}
           {extra && <div style={{ marginTop: 32 }}>{extra}</div>}
-          <div className="page-hero-dots">
-            {images.map((_, i) => (
-              <button
-                key={i}
-                className={`page-hero-dot${i === current ? ' active' : ''}`}
-                onClick={() => setCurrent(i)}
-                aria-label={`View image ${i + 1}`}
-              />
-            ))}
-          </div>
         </div>
       </div>
     </div>

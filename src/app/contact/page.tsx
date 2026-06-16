@@ -22,8 +22,8 @@ export default function ContactPage() {
     <main ref={ref as any}>
       <PageHero
         eyebrow="Get in touch"
-        title={<>Engineering consult.<br /><span>Within</span> 24 hours.</>}
-        subtitle="Tell us about the application, the load case and the environment. We respond with sample swatches, a test plan and a quote."
+        title={<>Engineering consult.<br />Delivered <span>within</span><br />24 hours.</>}
+        subtitle="Tell us about the application, the load case and the operating environment. We respond with sample swatches, a documented test plan and a detailed quote."
         extra={
           <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap', borderTop: '1px solid rgba(148,163,184,0.2)', paddingTop: 28 }}>
             {[
@@ -42,11 +42,11 @@ export default function ContactPage() {
           </div>
         }
         images={[
-          { src: 'https://images.unsplash.com/photo-Pytcgoy6Log?w=1920&q=85&auto=format&fit=crop', alt: 'Modern research institute building with columns' },
-          { src: 'https://images.unsplash.com/photo-4bp8TU5V3Ls?w=1920&q=85&auto=format&fit=crop', alt: 'Contemporary university campus architecture' },
-          { src: 'https://images.unsplash.com/photo-ryet7cqhtWE?w=1920&q=85&auto=format&fit=crop', alt: 'Aerial view of innovation campus buildings' },
-          { src: 'https://images.unsplash.com/photo-OT33uUulQRY?w=1920&q=85&auto=format&fit=crop', alt: 'Futuristic white research building exterior' },
-          { src: 'https://images.unsplash.com/photo-5WVQNmCY8mE?w=1920&q=85&auto=format&fit=crop', alt: 'Modern innovation building at dusk' },
+          { src: '/hero/contact/1.jpg', alt: 'Modern research institute building with columns' },
+          { src: '/hero/contact/2.jpg', alt: 'Contemporary university campus architecture' },
+          { src: '/hero/contact/3.jpg', alt: 'Aerial view of innovation campus buildings' },
+          { src: '/hero/contact/4.jpg', alt: 'Futuristic white research building exterior' },
+          { src: '/hero/contact/5.jpg', alt: 'Modern innovation building at dusk' },
         ]}
       />
 

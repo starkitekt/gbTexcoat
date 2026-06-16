@@ -142,8 +142,8 @@ export default function AboutPage() {
     <main ref={ref as any}>
       <PageHero
         eyebrow="Our story"
-        title={<>Fabric built for<br /><span>industrial</span> extremes.</>}
-        subtitle="We manufacture advanced multifaceted textiles for mission-critical applications across aerospace, defence, and high-performance industrial systems."
+        title={<>Fabric built<br />for <span>industrial</span><br />extremes.</>}
+        subtitle="We manufacture advanced multifaceted textiles for mission-critical applications across aerospace, defence and high-performance industrial systems — engineered, characterised and certified in-house before they ship."
         extra={
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Btn kind="primary" onClick={() => router.push('/products')}>Product systems</Btn>
@@ -151,11 +151,11 @@ export default function AboutPage() {
           </div>
         }
         images={[
-          { src: 'https://images.unsplash.com/photo-yVRkR4G46sc?w=1920&q=85&auto=format&fit=crop', alt: 'Workers in industrial textile manufacturing facility' },
-          { src: 'https://images.unsplash.com/photo-Kn2HI9oiNrw?w=1920&q=85&auto=format&fit=crop', alt: 'Worker at textile machine in factory' },
-          { src: 'https://images.unsplash.com/photo-aC4p_vtJxLc?w=1920&q=85&auto=format&fit=crop', alt: 'Industrial factory production floor' },
-          { src: 'https://images.unsplash.com/photo-xoxnfVIE7Qw?w=1920&q=85&auto=format&fit=crop', alt: 'Technical textile material close-up' },
-          { src: 'https://images.unsplash.com/photo-PDhHgBYuktw?w=1920&q=85&auto=format&fit=crop', alt: 'Precision manufacturing at industrial machine' },
+          { src: '/hero/about/1.jpg', alt: 'Workers in industrial textile manufacturing facility' },
+          { src: '/hero/about/2.jpg', alt: 'Worker at textile machine in factory' },
+          { src: '/hero/about/3.jpg', alt: 'Industrial factory production floor' },
+          { src: '/hero/about/4.jpg', alt: 'Technical textile material close-up' },
+          { src: '/hero/about/5.jpg', alt: 'Textile finishing line on a manufacturing floor' },
         ]}
       />
 

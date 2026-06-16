@@ -9,8 +9,8 @@ export default function ProductsPage() {
     <main>
       <PageHero
         eyebrow="Product catalogue"
-        title={<>Four fabric systems.<br /><span>One</span> engineering platform.</>}
-        subtitle="Each family targets a distinct failure mode: weight, weathering, tear, or fluid containment. Speak to engineering for non-standard specs."
+        title={<>Four fabric systems.<br /><span>One</span> engineering<br />platform.</>}
+        subtitle="Each family targets a distinct failure mode — weight, weathering, tear or fluid containment. Speak to engineering when your specification falls outside the standard catalogue."
         extra={
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Btn kind="primary" onClick={() => router.push('/contact')}>Request a spec sheet</Btn>
@@ -18,11 +18,11 @@ export default function ProductsPage() {
           </div>
         }
         images={[
-          { src: 'https://images.unsplash.com/photo-heUcr8fIRJ0?w=1920&q=85&auto=format&fit=crop', alt: 'Close-up of technical woven fabric material' },
-          { src: 'https://images.unsplash.com/photo-fecYgHu6Hoc?w=1920&q=85&auto=format&fit=crop', alt: 'Blue coated fabric texture detail' },
-          { src: 'https://images.unsplash.com/photo-YMuHZNTSVGE?w=1920&q=85&auto=format&fit=crop', alt: 'Black technical cloth texture close-up' },
-          { src: 'https://images.unsplash.com/photo-3xb9ezcoWWA?w=1920&q=85&auto=format&fit=crop', alt: 'Gray knitted fabric surface texture' },
-          { src: 'https://images.unsplash.com/photo-gep5qKPlDzA?w=1920&q=85&auto=format&fit=crop', alt: 'Industrial woven fabric weave pattern' },
+          { src: '/hero/products/1.jpg', alt: 'Close-up of technical woven fabric material' },
+          { src: '/hero/products/2.jpg', alt: 'Woven fabric texture detail' },
+          { src: '/hero/products/3.jpg', alt: 'Coarse technical cloth texture close-up' },
+          { src: '/hero/products/4.jpg', alt: 'Gray knitted fabric surface texture' },
+          { src: '/hero/products/5.jpg', alt: 'Industrial woven fabric weave pattern' },
         ]}
       />
 

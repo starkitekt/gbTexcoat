@@ -11,7 +11,7 @@ export default function RDPage() {
     <main ref={ref as any}>
       <PageHero
         eyebrow="Research & Development"
-        title={<>Materials characterised here.<br /><span>Not</span> assumed elsewhere.</>}
+        title={<>Materials characterised<br />here. <span>Not</span><br />assumed elsewhere.</>}
         subtitle="Our R&D arm operates inside the IIT Delhi Research & Innovation Park. Every coating chemistry iterates against in-house and university-grade test infrastructure before it ships."
         extra={
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
@@ -20,11 +20,11 @@ export default function RDPage() {
           </div>
         }
         images={[
-          { src: 'https://images.unsplash.com/photo-qbabEE7b2Xk?w=1920&q=85&auto=format&fit=crop', alt: 'Lab glassware and chemistry research equipment' },
-          { src: 'https://images.unsplash.com/photo-NjPuuILb39g?w=1920&q=85&auto=format&fit=crop', alt: 'Researchers studying chemistry in laboratory' },
-          { src: 'https://images.unsplash.com/photo-UJHANmlaHwc?w=1920&q=85&auto=format&fit=crop', alt: 'Scientists working with test tubes and samples' },
-          { src: 'https://images.unsplash.com/photo-gxHT8JuIbgQ?w=1920&q=85&auto=format&fit=crop', alt: 'Scientist working with laboratory equipment' },
-          { src: 'https://images.unsplash.com/photo-2oUIA9P0usw?w=1920&q=85&auto=format&fit=crop', alt: 'Scientist examining sample through laboratory microscope' },
+          { src: '/hero/rd/1.jpg', alt: 'Researcher pipetting samples into test tubes' },
+          { src: '/hero/rd/2.jpg', alt: 'Row of microscopes on a laboratory bench' },
+          { src: '/hero/rd/3.jpg', alt: 'Scientists working with test tubes and samples' },
+          { src: '/hero/rd/4.jpg', alt: 'Scientist working with laboratory equipment' },
+          { src: '/hero/rd/5.jpg', alt: 'Researcher operating instruments in a chemistry lab' },
         ]}
       />
 

@@ -4,26 +4,11 @@ import { useEffect, useState } from 'react';
 import { Btn, Eyebrow, Icon, Stat } from '../ui';
 
 const SLIDES = [
-  {
-    src: 'https://images.unsplash.com/photo-CnTco09pHKM?w=1920&q=85&auto=format&fit=crop',
-    label: 'AEROSTAT · SPHERICAL PLATFORM', sub: 'GBT-LS · COATED ENVELOPE',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-DuBNA1QMpPA?w=1920&q=85&auto=format&fit=crop',
-    label: 'AEROSTAT · DAWN OPERATIONS', sub: 'GBT-LS · LAMINATED HULL',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-kNO-lvgNan8?w=1920&q=85&auto=format&fit=crop',
-    label: 'LTA · HIGH-ALTITUDE SYSTEMS', sub: 'GBT-LS · ENVELOPE FABRIC',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-ls03C02UsGg?w=1920&q=85&auto=format&fit=crop',
-    label: 'BALLOON · SURVEILLANCE FLEET', sub: 'GBT-FX · BARRIER MEMBRANE',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-hpTH5b6mo2s?w=1920&q=85&auto=format&fit=crop',
-    label: 'AIRSHIP · HEAVY-LIFT HULL', sub: 'GBT-LS · COATED FABRIC',
-  },
+  { src: '/hero/home/1.jpg', label: 'AEROSTAT · SPHERICAL PLATFORM', sub: 'GBT-LS · COATED ENVELOPE' },
+  { src: '/hero/home/2.jpg', label: 'AEROSTAT · DAWN OPERATIONS', sub: 'GBT-LS · LAMINATED HULL' },
+  { src: '/hero/home/3.jpg', label: 'LTA · HIGH-ALTITUDE SYSTEMS', sub: 'GBT-LS · ENVELOPE FABRIC' },
+  { src: '/hero/home/4.jpg', label: 'BALLOON · SURVEILLANCE FLEET', sub: 'GBT-FX · BARRIER MEMBRANE' },
+  { src: '/hero/home/5.jpg', label: 'AIRSHIP · HEAVY-LIFT HULL', sub: 'GBT-LS · COATED FABRIC' },
 ];
 
 const INTERVAL = 5000;
@@ -31,19 +16,11 @@ const INTERVAL = 5000;
 export function HomeHero() {
   const router = useRouter();
   const [current, setCurrent] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  const go = (idx: number) => {
-    setCurrent(idx);
-    setPaused(true);
-    setTimeout(() => setPaused(false), INTERVAL);
-  };
 
   useEffect(() => {
-    if (paused) return;
-    const id = setTimeout(() => setCurrent(c => (c + 1) % SLIDES.length), INTERVAL);
-    return () => clearTimeout(id);
-  }, [current, paused]);
+    const id = setInterval(() => setCurrent(c => (c + 1) % SLIDES.length), INTERVAL);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <section className="hero">
@@ -109,11 +86,11 @@ export function HomeHero() {
       {/* Content */}
       <div className="container hero-content" style={{ position: 'relative', zIndex: 5 }}>
         <Eyebrow num="GBT · EST. 2024">Crafting Excellence</Eyebrow>
-        <h1 className="hero-title">
-          Fabrics for<br /><span className="em">specialized</span> applications.
+        <h1 className="page-hero-title">
+          Engineered fabrics<br />for <span>specialized</span><br />applications.
         </h1>
-        <p className="lead" style={{ maxWidth: '58ch', marginTop: 12 }}>
-          Our advanced multifaceted textiles are engineered for mission-critical applications: aerostats, airships, tethered platforms, portable fuel systems and tensile architecture. Built to perform where regular textiles fail.
+        <p className="page-hero-lead">
+          Advanced multifaceted textiles for mission-critical work — aerostats, airships, tethered platforms, portable fuel systems and tensile architecture. Built to perform precisely where conventional textiles fail.
         </p>
         <div style={{ display: 'flex', gap: 12, marginTop: 36, flexWrap: 'wrap' }}>
           <Btn kind="primary" onClick={() => router.push('/products')}>Explore engineered systems</Btn>
@@ -126,22 +103,6 @@ export function HomeHero() {
           <Stat value="2400" unit="N" label="Tear strength · MD" />
           <Stat value="25" unit="yr" label="UV-rated service life" />
           <Stat value="–40 / +80" unit="°C" label="Operating envelope" />
-        </div>
-        {/* Carousel dots */}
-        <div style={{ display: 'flex', gap: 8, marginTop: 24 }}>
-          {SLIDES.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => go(i)}
-              aria-label={`View slide ${i + 1}`}
-              style={{
-                width: i === current ? 36 : 20, height: 2, borderRadius: 1, border: 'none',
-                background: i === current ? 'var(--accent)' : 'rgba(255,255,255,0.25)',
-                cursor: 'pointer', padding: 0,
-                transition: 'width 0.3s ease, background 0.3s ease',
-              }}
-            />
-          ))}
         </div>
       </div>
     </section>
